@@ -1,59 +1,65 @@
-import '../styles/button.css';
+const template = document.createElement("template")
 
-//Creamos el template
-const template = document.createElement("template");
 template.innerHTML = `
 <style>@import url('../styles/button.css');</style>
-
-<div>
-  <button id="btn">
-  </button>
-</div>
+  <button id="btn"></button>
 `
 
 class ButtonComponent extends HTMLElement {
-  constructor() {
-    super()
+    constructor() {
+        super() |
+            this.attachShadow({ mode: "open" })
+        const shadowTemplate = template.content.cloneNode(true)
+        this.shadowRoot.append(shadowTemplate)
+        //obtener el atributo type
+        this.type = this.getAttribute("type")
+        console.log(this.type)
+        //obtener el element button del shadowRoot
+        this.btn = this.shadowRoot.querySelector("button")
+        this.btn.innerText = this.type
+        //al this.btn añadirle una clase add | substract
+        this.btn.classList.add(this.type);
+        // 1. obtener el counter-component
+        this.contador = document.querySelector("counter-component")
+        // Miramos si funciona o que trae
+        console.log(this.contador);
+        //2. obtener el atributto "value" del counter-component
+        this.valor = this.contador.getAttribute("value")
+        // Miramos si funciona o que trae
+        console.log(this.valor);
+    }
 
-    this.attachShadow({ mode: "open" })
-    const shadowTemplate = template.content.cloneNode(true)
-    this.shadowRoot.append(shadowTemplate);
-    this.type = this.getAttribute("type");
-    this.btn = this.shadowRoot.querySelector("button");
-    console.log(this.btn);
-    this.btn.innerText = this.type;
-    this.btn.classList.add(this.type);
-    this.counter = document.querySelector('counter-component')
-    console.log(this.counter)
-  }
-  
-  connectedCallback() {
-    console.log(`Me renderice ${this.type}`)
-    //Listen button
-    this.btn.addEventListener('click', ()=> {
-      console.log(this.btn.type);
-      this.counterValue = this.counter.getAttribute('value')
-      console.log(this.counterValue)
-      const newValue = (this.type === "add") ? this.add(this.currentValue) : this.substract(this.currentValue)
-    }); 
-  }
+    connectedCallback() {
+        console.log(`Me rendericé ${this.type}`)
+        //Listener botón
+        this.btn.addEventListener('click', () => {
+            console.log(`Click en: ${this.type}`);
+            //1. obtener el counter-component
+            //2. obtener el atributto "value" del counter-component
+            this.currentValue = +this.contador.getAttribute("value")
+            console.log(typeof this.currentValue)
+            this.numValue = parseInt(this.currentValue)
+            //3. calcular el nuevo valor según el tipo del botón
+            const newValue = (this.type === "add") ? this.add(this.currentValue) : this.substract(this.currentValue)
+            //4. setear al attributo "value  de "counter-component ese nuevo valor
+            this.contador.setAttribute("value", newValue)
+            this.contador.h2Element.innerText = newValue
+            console.log(newValue)
+        })
+    }
 
-  disconnectedCallback() {
+    disconnectedCallback() {
+        console.log(`Me desmonté ${this.type}`)
 
-  }
+    }
+
+    add(value) {
+        return value + 1
+     }
+
+    substract(value) {
+        return value - 1
+    }
 }
 
-export function setupCounter(element) {
-  const setCounter = (count) => {
-    counter = count
-  }
-  element.addEventListener('click', () => setCounter(counter + 1))
-  setCounter(0)
-}
-
-
-customElements.define('button-component', ButtonComponent);
-/*
-const addBtn = document.querySelector('button-component [type=add]')
-console.log(addBtn)
-addBtn.remove()*/
+customElements.define("button-component", ButtonComponent)

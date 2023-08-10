@@ -15,9 +15,9 @@ class CounterComponent extends HTMLElement {
     this.attachShadow({ mode: "open" })
     const shadowTemplate = template.content.cloneNode(true)
     this.shadowRoot.append(shadowTemplate)
-    this.value = this.getAttribute('value')
-    this.count = this.shadowRoot.querySelector('h2')
-    this.count.innerText = this.value
+    this.value = this.getAttribute('value');
+    this.h2Element = this.shadowRoot.querySelector('h2');
+    this.h2Element.innerText = this.value;
   }
 
   connectedCallback() {
