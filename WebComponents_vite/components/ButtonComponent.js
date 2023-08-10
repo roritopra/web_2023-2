@@ -23,10 +23,19 @@ class ButtonComponent extends HTMLElement {
     console.log(this.btn);
     this.btn.innerText = this.type;
     this.btn.classList.add(this.type);
+    this.counter = document.querySelector('counter-component')
+    console.log(this.counter)
   }
-
+  
   connectedCallback() {
     console.log(`Me renderice ${this.type}`)
+    //Listen button
+    this.btn.addEventListener('click', ()=> {
+      console.log(this.btn.type);
+      this.counterValue = this.counter.getAttribute('value')
+      console.log(this.counterValue)
+      const newValue = (this.type === "add") ? this.add(this.currentValue) : this.substract(this.currentValue)
+    }); 
   }
 
   disconnectedCallback() {
@@ -34,7 +43,17 @@ class ButtonComponent extends HTMLElement {
   }
 }
 
+export function setupCounter(element) {
+  const setCounter = (count) => {
+    counter = count
+  }
+  element.addEventListener('click', () => setCounter(counter + 1))
+  setCounter(0)
+}
+
+
 customElements.define('button-component', ButtonComponent);
+/*
 const addBtn = document.querySelector('button-component [type=add]')
 console.log(addBtn)
-addBtn.remove()
+addBtn.remove()*/
