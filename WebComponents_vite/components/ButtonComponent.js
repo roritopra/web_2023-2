@@ -57,8 +57,10 @@ class ButtonComponent extends HTMLElement {
         return value + 1
      }
 
-    substract(value) {
-        return value - 1
+     substract(value) {
+      return (value > 0)
+      ? (value - 1)
+      :value;
     }
 }
 
