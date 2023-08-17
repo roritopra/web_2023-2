@@ -15,6 +15,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 30px 149px 0 149px;
+    max-width: 1440px;
 }
 
 .left {

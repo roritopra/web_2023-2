@@ -1,0 +1,34 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 159px;
+    background: #F4F4F4;
+    height: 20vh;
+}
+
+.center-footer {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.center-footer a {
+    color: var(--normal, #151515);
+    font-family: 'Rubik';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.right-footer {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.right-footer img{
+    width: 40px;
+    height: 40px;
+}
