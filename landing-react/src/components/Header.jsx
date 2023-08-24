@@ -1,23 +1,57 @@
-import React from "react";
-import logo from "../assets/logo.svg"
-import '../styles/Header.css'
+import { Menu } from './Menu'
 
-export function Header() {
-    return(
-            <header>
-                <div className="left">
-                    <img src={logo} alt="" />
-                    <div className="left-names">
-                        <a href="">Featuring</a>
-                        <a href="">Pricing</a>
-                        <a href="">Testimonial</a>
-                        <a href="">Help</a>
-                    </div>
-                </div>
-                <div className="right">
-                    <a className="enter" href="">Sign in</a>
-                    <a className="enter --sign" href="">Sign up</a>
-                </div>
-            </header>
-    )
+export function Header () {
+  const data = [
+    {
+      id: 1,
+      text: 'Featuring',
+      options: [
+        {
+          id: crypto.randomUUID(),
+          text: 'Misión/Visión'
+        },
+        {
+          id: crypto.randomUUID(),
+          text: 'Valores'
+        },
+        {
+          id: crypto.randomUUID(),
+          text: 'Organización'
+        }
+      ]
+    },
+    {
+      id: 2,
+      text: 'Prices',
+      options: [
+        {
+          id: crypto.randomUUID(),
+          text: 'Consultoria Web'
+        },
+        {
+          id: crypto.randomUUID(),
+          text: 'Auditoria'
+        },
+        {
+          id: crypto.randomUUID(),
+          text: 'Diseño de Branding'
+        }
+      ]
+    },
+    {
+      id: 3,
+      text: 'Testimonial',
+      options: null
+    },
+    {
+      id: 4,
+      text: 'Help',
+      options: null
+    }
+  ]
+  return (
+    <header>
+      <Menu menu={data} />
+    </header>
+  )
 }
