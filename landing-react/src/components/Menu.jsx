@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import logo from '../assets/logo.svg'
 import '../styles/Header.css'
 
@@ -9,7 +10,7 @@ export function Menu ({ menu }) {
   }
 
   return (
-    <header>
+    <header className='header'>
       <div className='left'>
         <img src={logo} alt='' />
         <div className='left-names'>
@@ -31,17 +32,23 @@ export function Menu ({ menu }) {
 }
 
 function Dropdown ({ item }) {
+  const [showList, setShowList] = useState(false)
   const { id, text, options } = item
+
+  const toggleState = () => setShowList((prevState) => !prevState)
   return (
-    <li key={id}>
-      <a href=''>{text}</a>
-      <DropdownList options={options} />
+    <li className='drops-li' key={id} onMouseLeave={toggleState}>
+      <a onMouseEnter={toggleState} onMouseLeave={() => setShowList(false)}>{text}</a>
+
+      {
+        showList ? <DropdownList options={options} /> : null
+      }
     </li>
   )
 }
 function DropdownList ({ options }) {
   return (
-    <ul>
+    <ul className='dropdown-list'>
       {
          options?.map(({ id, text }) => {
            return (<li onClick={() => window.alert('Click')} key={id}>{text}</li>)

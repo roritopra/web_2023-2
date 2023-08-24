@@ -10,11 +10,36 @@ li {
     list-style: none;
 }
 
+.drops-li {
+    position: relative;
+    color: var(--gray, #2B2B2B);
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 28px;
+    background: #f4f4f4;
+    border-radius: 7px;
+    border: 1px solid #c1c1c1;
+}
+
+.dropdown-list li{
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dropdown-list li:hover{
+    background: #c1c1c1;
+}
+
 a {
     text-decoration: none;
 }
 
-header {
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,6 +49,7 @@ header {
 
 .left {
     display: flex;
+    align-items: center;
     gap: 50px;
 }
 
