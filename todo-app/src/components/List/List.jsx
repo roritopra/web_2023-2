@@ -1,7 +1,8 @@
 import { Button } from '../'
 import './List.css'
-export function List ({ list, onToggle }) {
+export function List ({ list, onToggle, onDelete }) {
   const handleToggle = (todo) => onToggle(todo)
+  const handleDelete = (id) => onDelete(id)
 
   return (
     <ul className='list'>
@@ -9,6 +10,7 @@ export function List ({ list, onToggle }) {
         list.map(item =>
           <ListItem
             onToggle={handleToggle}
+            onDelete={handleDelete}
             key={item.id}
             todo={item}
           />)
@@ -18,7 +20,7 @@ export function List ({ list, onToggle }) {
   )
 }
 
-function ListItem ({ todo, onToggle }) {
+function ListItem ({ todo, onToggle, onDelete }) {
   const { id, title, completed } = todo
 
   const handleChange = ({ target }) => {
@@ -30,6 +32,11 @@ function ListItem ({ todo, onToggle }) {
     )
   }
 
+  const handleDelete = () => {
+    console.log(id)
+    onDelete(id)
+  }
+
   return (
     <li key={id} className='list-item'>
       <div>
@@ -38,14 +45,28 @@ function ListItem ({ todo, onToggle }) {
           checked={completed}
           onChange={handleChange}
         />
-        <h3>
-          {title}
-        </h3>
+        <DashedTodo isCompleted={completed}>
+          <h3>
+            {title}
+          </h3>
+        </DashedTodo>
       </div>
       <Button
         labelText='Delete'
         type='delete'
+        onClick={handleDelete}
       />
     </li>
   )
+}
+
+function DashedTodo ({ children, isCompleted }) {
+  if (isCompleted) {
+    return (
+      <del>
+        {children}
+      </del>
+    )
+  }
+  return children
 }
