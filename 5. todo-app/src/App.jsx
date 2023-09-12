@@ -1,27 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Form, List, Filters, Footer } from './components'
+import { filters } from './const/filter'
+
+const newState = JSON.parse(window.localStorage.getItem('todos')) ?? []
+const newFilter = window.localStorage.getItem('filters') || 'all'
 
 export default function App () {
-  const [todos, setTodos] = useState([])
-  const [filter, setFilter] = useState('all')
+  const [todos, setTodos] = useState(newState)
+  const [filter, setFilter] = useState(newFilter)
 
-  const filters = [
-    {
-      id: 1,
-      label: 'All',
-      value: 'all'
-    },
-    {
-      id: 2,
-      label: 'Completed',
-      value: 'completed'
-    },
-    {
-      id: 3,
-      label: 'Pending',
-      value: 'pending'
-    }
-  ]
+  useEffect(() => {
+    window.localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
   const createTodo = (title) => {
     const newTodo = {
@@ -55,6 +45,7 @@ export default function App () {
 
   const handleFilterChange = (filterValue) => {
     setFilter(filterValue)
+    window.localStorage.setItem('filters', filterValue)
   }
 
   const filteredTodos = todos.filter(todo => {
