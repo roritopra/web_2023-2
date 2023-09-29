@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-const useFetchJokes = (url) => {
+const useFetchFacts = (url) => {
   const [data, setData] = useState([]);
-  const [loadingJokes, setLoading] = useState(true);
+  const [isLoadingFacts, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +23,7 @@ const useFetchJokes = (url) => {
     fetchData();
   }, [url]);
 
-  return { data, loadingJokes };
+  return { data, isLoadingFacts };
 };
 
-export default useFetchJokes;
+export default useFetchFacts;

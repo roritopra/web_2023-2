@@ -1,14 +1,14 @@
-import { RenderJokes } from './components/RenderJokes';
+import { RenderFacts } from './components/RenderFacts';
 import { RenderCats } from './components/RenderCats';
 import './index.css';
 
 function App() {
 
   return (
-    <div className="text-red text-2xl">
-      <h1>Cargando apis de gatos y chistes malisimos</h1>
+    <div>
+      <h1 className="text-2xl text-red-600">Cargando apis de gatos y datos raros ._.</h1>
       <RenderCats />
-      <RenderJokes />
+      <RenderFacts />
     </div>
   );
 }

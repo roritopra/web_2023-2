@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useFetchCats = (url) => {
   const [data, setData] = useState([]);
-  const [loadingCats, setLoading] = useState(true);
+  const [isLoadingCats, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,6 +12,7 @@ const useFetchCats = (url) => {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
+        console.log(result);
         setData(result);
         setLoading(false);
       } catch (error) {
@@ -23,7 +24,7 @@ const useFetchCats = (url) => {
     fetchData();
   }, [url]);
 
-  return { data, loadingCats };
+  return { data, isLoadingCats };
 };
 
 export default useFetchCats;
