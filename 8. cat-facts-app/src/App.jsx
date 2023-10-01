@@ -4,6 +4,10 @@ import './index.css';
 
 function App() {
 
+  const reloadApi = () => {
+    window.location.reload();
+  };
+
   return (
     <main className='grid place-content-center min-h-screen max-h-screen'>
       <div className="relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md border border-gray-700">
@@ -14,7 +18,7 @@ function App() {
           <RenderFacts />
         </div>
         <div className="p-6 pt-0">
-          <button data-ripple-light="true" type="button" className="select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+          <button onClick={reloadApi} data-ripple-light="true" type="button" className="select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] disabled:opacity-50 disabled:shadow-none">
             Try again
           </button>
         </div>
