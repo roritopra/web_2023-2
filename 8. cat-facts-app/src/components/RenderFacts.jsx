@@ -1,8 +1,8 @@
 import useFetchFacts from '../hooks/useFetchFacts';
 
 function RenderFacts() {
-    const { data: facts, isLoadingFacts } = useFetchFacts('https://catfact.ninja/fact');
-
+    const { data: catsFacts, isLoadingFacts } = useFetchFacts('https://catfact.ninja/fact');
+    
     return (
         <>
         {isLoadingFacts? (
@@ -17,9 +17,8 @@ function RenderFacts() {
         </div>
     ) : (
         <div className="jokes-list">
-            <div key={facts} className="jokes">
-            <h2>{facts.fact}</h2>
-            <p>{facts.lenght}</p>
+            <div key={catsFacts}>
+                <h2  className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">{catsFacts.fact}</h2>
             </div>
         </div>
     )}

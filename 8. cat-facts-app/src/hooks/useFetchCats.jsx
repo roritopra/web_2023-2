@@ -7,14 +7,15 @@ const useFetchCats = (url) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const result = await response.json();
-        console.log(result);
-        setData(result);
-        setLoading(false);
+        setTimeout(async () => {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const result = await response.json();
+          setData(result);
+          setLoading(false);
+        }, 2000); 
       } catch (error) {
         console.error('Error:', error);
         setLoading(false);
