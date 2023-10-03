@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useFetchCats = () => {
+const useFetchImageCats = () => {
   const [data, setData] = useState([]);
   const [isLoadingCats, setLoading] = useState(true);
 
@@ -28,4 +28,4 @@ const useFetchCats = () => {
   return { data, isLoadingCats };
 };
 
-export default useFetchCats;
+export default useFetchImageCats;

@@ -1,7 +1,7 @@
-import useFetchCats from "../hooks/useFetchCats";
+import useFetchImageCats from "../hooks/useFetchImageCats";
 
 function RenderCats() {
-  const { data: catsImage, isLoadingCats } = useFetchCats();
+  const { data: catsImage, isLoadingCats } = useFetchImageCats();
 
   return (
     <>
