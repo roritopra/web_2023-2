@@ -1,7 +1,7 @@
 import useFetchFacts from '../hooks/useFetchFacts';
 
 function RenderFacts() {
-    const { data: catsFacts, isLoadingFacts } = useFetchFacts('https://catfact.ninja/fact');
+    const { data: catsFacts, isLoadingFacts } = useFetchFacts();
 
     return (
         <>

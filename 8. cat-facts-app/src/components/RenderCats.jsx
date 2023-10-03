@@ -1,7 +1,7 @@
 import useFetchCats from "../hooks/useFetchCats";
-import PropTypes from 'prop-types';
-function RenderCats({ firstFourWords }) {
-  const { data: catsImage, isLoadingCats } = useFetchCats(`https://cataas.com/cat/says/${firstFourWords}?json=true`);
+
+function RenderCats() {
+  const { data: catsImage, isLoadingCats } = useFetchCats();
 
   return (
     <>
@@ -24,9 +24,5 @@ function RenderCats({ firstFourWords }) {
     </>
   )
 }
-
-RenderCats.propTypes = {
-  firstFourWords: PropTypes.string.isRequired,
-};
 
 export { RenderCats };

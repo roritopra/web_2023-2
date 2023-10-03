@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useFetchCats = (url) => {
+const useFetchCats = () => {
   const [data, setData] = useState([]);
   const [isLoadingCats, setLoading] = useState(true);
 
@@ -8,7 +8,7 @@ const useFetchCats = (url) => {
     const fetchData = async () => {
       try {
         setTimeout(async () => {
-          const response = await fetch(url);
+          const response = await fetch('https://cataas.com/cat/says/bocachico?json=true');
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
@@ -23,7 +23,7 @@ const useFetchCats = (url) => {
     };
 
     fetchData();
-  }, [url]);
+  }, []);
 
   return { data, isLoadingCats };
 };

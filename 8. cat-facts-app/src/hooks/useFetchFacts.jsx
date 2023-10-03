@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useFetchFacts = (url) => {
+const useFetchFacts = () => {
   const [data, setData] = useState([]);
   const [isLoadingFacts, setLoading] = useState(true);
 
@@ -8,7 +8,7 @@ const useFetchFacts = (url) => {
     const fetchData = async () => {
       try {
         setTimeout(async () => {
-          const response = await fetch(url);
+          const response = await fetch('https://catfact.ninja/fact');
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
@@ -23,7 +23,7 @@ const useFetchFacts = (url) => {
     };
 
     fetchData();
-  }, [url]);
+  }, []);
 
   return { data, isLoadingFacts };
 };
