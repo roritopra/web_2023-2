@@ -7,12 +7,14 @@ const useFetchImageCats = () => {
   
   const { data: catsFacts } = useFetchFacts();
 
+  const wordsFacts = catsFacts.fact;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         console.log(catsFacts.fact);
         setTimeout(async () => {
-          const response = await fetch(`https://cataas.com/cat/says/${catsFacts.fact}?json=true`);
+          const response = await fetch(`https://cataas.com/cat/says/${wordsFacts}?json=true`);
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
