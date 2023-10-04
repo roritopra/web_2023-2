@@ -1,14 +1,14 @@
 import { RenderFacts } from './components/RenderFacts';
 import { RenderCats } from './components/RenderCats';
 import './index.css';
-import React from 'react';
+import { useState } from 'react';
 
 function App() {
   const reloadApi = () => {
     setReloadKey(prevKey => !prevKey); 
   };
 
-  const [reloadKey, setReloadKey] = React.useState(false); 
+  const [reloadKey, setReloadKey] = useState(false); 
 
   return (
     <main className='grid place-content-center min-h-screen max-h-screen'>
