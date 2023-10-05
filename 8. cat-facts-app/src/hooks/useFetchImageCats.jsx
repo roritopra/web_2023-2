@@ -14,7 +14,10 @@ const useFetchImageCats = () => {
       try {
         console.log(catsFacts.fact);
         setTimeout(async () => {
-          const response = await fetch(`https://cataas.com/cat/says/${wordsFacts}?json=true`);
+          const firstourWords = wordsFacts.split(' ');
+          const firstFourWords = firstourWords.slice(0, 4);
+          
+          const response = await fetch(`https://cataas.com/cat/says/${firstFourWords.join(' ')}?json=true`);
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
