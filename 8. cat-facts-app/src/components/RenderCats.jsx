@@ -1,7 +1,6 @@
-import useFetchImageCats from "../hooks/useFetchImageCats";
+import PropTypes from 'prop-types';
 
-function RenderCats() {
-  const { data: catsImage, isLoadingCats } = useFetchImageCats();
+function RenderCats({catsImage, isLoadingCats}) {
 
   return (
     <>
@@ -23,6 +22,11 @@ function RenderCats() {
       )}
     </>
   )
+}
+
+RenderCats.propTypes = {
+  catsImage: PropTypes.object.isRequired,
+  isLoadingCats: PropTypes.bool.isRequired
 }
 
 export { RenderCats };

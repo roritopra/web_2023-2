@@ -1,7 +1,6 @@
-import useFetchFacts from '../hooks/useFetchFacts';
+import { PropTypes } from 'prop-types';
 
-function RenderFacts() {
-    const { data: catsFacts, isLoadingFacts } = useFetchFacts();
+function RenderFacts({catsFacts, isLoadingFacts}) {
 
     return (
         <>
@@ -21,12 +20,17 @@ function RenderFacts() {
                 <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                     Random Cats
                 </h5>
-                <h2  className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">{catsFacts.fact}</h2>
+                <h2  className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">{catsFacts}</h2>
             </div>
         </div>
     )}
     </>
     )
+}
+
+RenderFacts.propTypes = {
+    catsFacts: PropTypes.string.isRequired,
+    isLoadingFacts: PropTypes.bool.isRequired
 }
 
 export { RenderFacts }

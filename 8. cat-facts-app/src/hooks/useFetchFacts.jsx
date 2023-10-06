@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 
 const useFetchFacts = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({
+    fact: '',
+    length: 0
+  });
   const [isLoadingFacts, setLoading] = useState(true);
 
   useEffect(() => {
