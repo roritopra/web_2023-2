@@ -1,20 +1,20 @@
-function LoginPage() {
+function RegisterPage() {
   return (
     <>
-      <section className="relative flex flex-row-reverse flex-wrap lg:h-screen lg:items-center">
+      <section className="relative bg-black flex flex-wrap lg:h-screen lg:items-center">
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
             <div className="flex justify-center items-center">
-              <img src="/logo-dark.png" alt="Logo" className="w-[80%]" />
+              <img src="/logo-light.png" alt="Logo" className="w-[80%]" />
             </div>
-            <p className="mt-4 text-gray-500">
-            Enter the leading portal for rocket launches and space exploration to access up-to-date information on missions and rockets.
+            <p className="mt-4 text-white">
+              Welcome to the leading registry for rocket launches and space exploration, with up-to-date mission and rocket information.
             </p>
           </div>
 
           <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
             <div>
-              <label for="email" className="sr-only">
+              <label for="email" className="sr-only text-white">
                 Email
               </label>
 
@@ -84,10 +84,10 @@ function LoginPage() {
             </div>
 
             <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-white">
                 No account?
                 <a className="underline" href="">
-                  Log in
+                  Sign up
                 </a>
               </p>
 
@@ -104,7 +104,7 @@ function LoginPage() {
         <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
           <img
             alt="Welcome"
-            src="/bg_login.jpg"
+            src="/bg-register.jpg"
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
@@ -113,4 +113,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegisterPage;
