@@ -1,7 +1,7 @@
 function Menu() {
   return (
     <>
-      <header className="py-6 bg-black px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white">
+      <header className="py-6 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white">
         <div className="flex flex-grow basis-0">
           <a href="./" className="w-25px h-46px">
             <img src="/logo-light.png" alt="Logo" className="w-[40%]" />
