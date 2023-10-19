@@ -14,10 +14,10 @@ function Menu() {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/launches">Launches</a>
+              <a href="/login">Launches</a>
             </li>
             <li>
-              <a href="/about">About</a>
+              <a href="/register">About</a>
             </li>
           </ul>
         </nav>

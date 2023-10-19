@@ -1,4 +1,4 @@
-function RegisterPage() {
+export function RegisterPage() {
   return (
     <>
       <section className="relative bg-black flex flex-wrap lg:h-screen lg:items-center">
@@ -113,4 +113,3 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;

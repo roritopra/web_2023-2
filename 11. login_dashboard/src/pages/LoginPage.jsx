@@ -1,4 +1,4 @@
-function LoginPage() {
+export function LoginPage() {
   return (
     <>
       <section className="relative flex flex-row-reverse flex-wrap lg:h-screen lg:items-center">
@@ -113,4 +113,3 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;

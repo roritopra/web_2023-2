@@ -1,13 +1,10 @@
-import Menu from './components/Menu'
-import LandingPage from './pages/LandingPage'
-import LoginPage from './pages/LoginPage'
+import { AppRouter } from './AppRouter'
 
 function App() {
 
   return (
     <>
-      <Menu />
-      <LandingPage />
+      <AppRouter />
     </>
   )
 }
