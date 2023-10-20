@@ -15,6 +15,10 @@ module.exports = withMT({
         'light-white': 'rgba(255, 255, 255, 0.18)',
       },
     },
+    fontFamily: {
+      roobert: ['Roobert regular', 'Inter', 'sans-serif'],
+      din: ['DIN', 'Inter', 'sans-serif'],
+    },
   },
   plugins: [
     flowbitePlugin

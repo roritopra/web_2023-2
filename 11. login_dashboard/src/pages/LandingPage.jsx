@@ -32,14 +32,14 @@ export function LandingPage() {
               <Typography
                 variant="h1"
                 color="white"
-                className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+                className="mb-4 text-3xl md:text-4xl lg:text-5xl font-roobert font-bold"
               >
                 SUCCESS GUYS!
               </Typography>
               <Typography
                 variant="lead"
                 color="white"
-                className="mb-12 opacity-80 text-base font-normal"
+                className="mb-12 opacity-80 text-base font-normal font-roobert"
               >
                 MORE THAN 600+ LAUNCHES AND OVER 5 MILLION LBS OF THRUST
               </Typography>

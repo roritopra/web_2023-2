@@ -1,14 +1,17 @@
 export const Menulinks = [
-    {
-        name: 'Home',
+    {   
+        id: 1,
+        text: 'Home',
         path: '/'
     },
-    {
-        name: 'About',
-        path: '/about'
+    {   
+        id: 2,
+        text: 'Launches',
+        path: '/login'
     },
-    {
-        name: 'Contact',
-        path: '/contact'
+    {   
+        id: 3,
+        text: 'About',
+        path: '/register'
     }
 ];
