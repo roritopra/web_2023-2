@@ -1,4 +1,7 @@
+import { Button } from "@material-tailwind/react";
+
 export function LoginPage() {
+  
   return (
     <>
       <section className="relative flex flex-row-reverse flex-wrap lg:h-screen lg:items-center">
@@ -86,17 +89,11 @@ export function LoginPage() {
             <div className="flex items-center justify-between">
               <p className="text-sm text-gray-500">
                 No account?
-                <a className="underline" href="">
-                  Log in
+                <a className="underline" href="/register">
+                  Register
                 </a>
               </p>
-
-              <button
-                type="submit"
-                className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-              >
-                Sign in
-              </button>
+              <Button type="submit">Log in</Button>
             </div>
           </form>
         </div>

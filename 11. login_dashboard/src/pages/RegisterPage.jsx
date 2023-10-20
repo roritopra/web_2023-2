@@ -1,3 +1,5 @@
+import { Button } from "@material-tailwind/react";
+
 export function RegisterPage() {
   return (
     <>
@@ -85,18 +87,12 @@ export function RegisterPage() {
 
             <div className="flex items-center justify-between">
               <p className="text-sm text-white">
-                No account?
-                <a className="underline" href="">
-                  Sign up
+                Do you have account?
+                <a className="underline" href="/login">
+                  Log in
                 </a>
               </p>
-
-              <button
-                type="submit"
-                className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-              >
-                Sign in
-              </button>
+              <Button type="submit" color="white">Sign in</Button>
             </div>
           </form>
         </div>
