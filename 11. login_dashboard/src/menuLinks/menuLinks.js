@@ -2,16 +2,16 @@ export const Menulinks = [
     {   
         id: 1,
         text: 'Home',
-        path: '/'
+        path: '/home'
     },
     {   
         id: 2,
         text: 'Launches',
-        path: '/login'
+        path: '/launches'
     },
     {   
         id: 3,
         text: 'About',
-        path: '/register'
+        path: '/about'
     }
 ];

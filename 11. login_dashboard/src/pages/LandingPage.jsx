@@ -30,32 +30,90 @@ export function LandingPage() {
           <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/50">
             <div className="w-3/4 text-center md:w-2/4">
               <Typography
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-delay="800"
                 variant="h1"
                 color="white"
-                className="mb-4 text-3xl md:text-4xl lg:text-5xl font-roobert font-bold"
+                className="mb-4 text-3xl md:text-4xl lg:text-7xl font-roobert font-bold"
               >
                 SUCCESS GUYS!
               </Typography>
               <Typography
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-delay="900"
                 variant="lead"
                 color="white"
                 className="mb-12 opacity-80 text-base font-normal font-roobert"
               >
-                MORE THAN 600+ LAUNCHES AND OVER 5 MILLION LBS OF THRUST
+                MORE THAN 600+ LAUNCHES WORKING ON A NEXT GENERATION
               </Typography>
             </div>
           </div>
         </div>
-        <img
-          src="bg2-landing.jpg"
-          alt="image 2"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src="bg3-landing.jpg"
-          alt="image 3"
-          className="h-full w-full object-cover"
-        />
+        <div className="relative h-full w-full">
+          <img
+            src="bg2-landing.jpg"
+            alt="image 2"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/50">
+            <div className="w-3/4 text-center md:w-2/4">
+              <Typography
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-delay="800"
+                variant="h1"
+                color="white"
+                className="mb-4 text-3xl md:text-4xl lg:text-7xl font-roobert font-bold"
+              >
+                FALCON HEAVY
+              </Typography>
+              <Typography
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-delay="900"
+                variant="lead"
+                color="white"
+                className="mb-12 opacity-80 text-base font-normal font-roobert"
+              >
+                OVER 5 MILLION LBS OF THRUST
+              </Typography>
+            </div>
+          </div>
+        </div>
+        <div className="relative h-full w-full">
+          <img
+            src="bg3-landing.jpg"
+            alt="image 3"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/50">
+            <div className="w-3/4 text-center md:w-2/4">
+              <Typography
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-delay="800"
+                variant="h1"
+                color="white"
+                className="mb-4 text-3xl md:text-4xl lg:text-7xl font-roobert font-bold"
+              >
+                FALCON 9
+              </Typography>
+              <Typography
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-delay="900"
+                variant="lead"
+                color="white"
+                className="mb-12 opacity-80 text-base font-normal font-roobert"
+              >
+                FIRST ORBITAL CLASS ROCKET CAPABLE OF REFLIGHT
+              </Typography>
+            </div>
+          </div>
+        </div>
       </Carousel>
     </>
   );
