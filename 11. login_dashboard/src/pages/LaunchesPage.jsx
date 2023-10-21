@@ -1,25 +1,24 @@
-import Menu from "../components/Menu"
-import './launches.css'
+import Menu from "../components/Menu";
+import "./launches.css";
 
 export function LaunchesPage() {
-  document.getElementById("cards").onmousemove = e => {
-    for(const card of document.getElementsByClassName("card")) {
-      const rect = card.getBoundingClientRect(),
-            x = e.clientX - rect.left,
-            y = e.clientY - rect.top;
   
+  document.getElementById("cards").onmousemove = (e) => {
+    for (const card of document.getElementsByClassName("card")) {
+      const rect = card.getBoundingClientRect(),
+        x = e.clientX - rect.left,
+        y = e.clientY - rect.top;
+
       card.style.setProperty("--mouse-x", `${x}px`);
       card.style.setProperty("--mouse-y", `${y}px`);
     }
-  }
+  };
 
   return (
     <>
-    <Menu />
+      <Menu />
       <main className="bg-black">
-        <header
-          className="h-screen overflow-hidden relative z-20"
-        >
+        <header className="h-screen overflow-hidden relative z-20">
           <div className="relative h-full w-full">
             <img
               src="bg-launches.jpg"
@@ -56,25 +55,21 @@ export function LaunchesPage() {
           </div>
         </section>
 
-
-
-<div id="cards" className="grid mx-14 gap-7 sm:grid-cols-2 lg:grid-cols-3 mt-32 ">
-  <div className="card">
-    <div className="card-content">
-    </div>
-  </div>
-  <div className="card">
-    <div className="card-content">
-    </div>
-  </div>
-  <div className="card">
-    <div className="card-content">
-    </div>
-  </div>
-</div>
-
+        <div
+          id="cards"
+          className="grid mx-14 gap-7 sm:grid-cols-2 lg:grid-cols-3 mt-32 "
+        >
+          <div className="card">
+            <div className="card-content"></div>
+          </div>
+          <div className="card">
+            <div className="card-content"></div>
+          </div>
+          <div className="card">
+            <div className="card-content"></div>
+          </div>
+        </div>
       </main>
     </>
-  )
+  );
 }
-

@@ -38,16 +38,16 @@
 
 .card::before {
   background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y), 
+    800px circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.06),
     transparent 40%
   );
   z-index: 3;
 }
 
-.card::after {  
+.card::after {
   background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y), 
+    600px circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.4),
     transparent 40%
   );
@@ -66,15 +66,13 @@
   z-index: 2;
 }
 
-/* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
-
-@media(max-width: 1000px) {
+@media (max-width: 1000px) {
   .card {
     flex-shrink: 1;
   }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   .card {
     height: 180px;
   }

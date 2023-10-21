@@ -1,6 +1,15 @@
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 import { Button } from "@material-tailwind/react";
 
 export function LoginPage() {
+  const navigate = useNavigate(); 
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+
+    navigate('/home');
+  };
+
   return (
     <>
       <section className="relative flex flex-row-reverse flex-wrap lg:h-screen lg:items-center">
@@ -32,6 +41,7 @@ export function LoginPage() {
           data-aos="fade-down"
           data-aos-duration="1200"
           data-aos-delay="300"
+          onSubmit={handleSubmit}
           >
             <div>
               <label for="email" className="sr-only">
