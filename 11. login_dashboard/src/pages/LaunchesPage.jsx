@@ -14,9 +14,6 @@ export function LaunchesPage() {
     }
   };
 
-  const launch = data.launch_success;
-  const launchStatus = launch ? "Success" : "Failure";
-
   return (
     <>
       <Menu />
@@ -83,7 +80,7 @@ export function LaunchesPage() {
                       : "font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm"
                   }`}
                 >
-                  {launchStatus}
+                  {launch.launch_success ? "Success" : "Failure"}
                 </span>
               </div>
               <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">
