@@ -54,26 +54,106 @@ export function LaunchesPage() {
           </div>
         </section>
 
-        <div
+        <section
           id="cards"
           className="grid mx-2 gap-3 mt-32 sm:grid-cols-2 lg:grid-cols-3 lg:mx-14"
         >
           <article className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4">
             <div className="card-content"></div>
-            <div className="relative z-50 flex justify-center items-center">
+            <div className="relative z-30 flex justify-center items-center">
               <img
-                className="overflow-hidden w-full mb-11 px-14"
+                className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
                 src="https://images2.imgbox.com/40/e3/GypSkayF_o.png"
                 alt=""
               />
             </div>
-            <div className="relative z-50 flex px-4">
+            <div className="relative z-30 flex px-4">
               <span className="font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm">Failure</span>
             </div>
-            <h6 className="relative z-50 font-roobert text-white px-4 text-xl mb-7">Flight #1</h6>
-            <p className="relative z-50 px-4 text-white font-roobertLight  text-sm">Engine failure at 33 seconds and loss of vehicle</p>
+            <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">Flight #1</h6>
+            <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">Engine failure at 33 seconds and loss of vehicle</p>
           </article>
-        </div>
+
+          <article className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4">
+            <div className="card-content"></div>
+            <div className="relative z-30 flex justify-center items-center">
+              <img
+                className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
+                src="https://images2.imgbox.com/be/e7/iNqsqVYM_o.png"
+                alt=""
+              />
+            </div>
+            <div className="relative z-30 flex px-4">
+              <span className="font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm">Failure</span>
+            </div>
+            <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">Flight #1</h6>
+            <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">Engine failure at 33 seconds and loss of vehicle</p>
+          </article>
+
+          <article className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4">
+            <div className="card-content"></div>
+            <div className="relative z-30 flex justify-center items-center">
+              <img
+                className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
+                src="https://images2.imgbox.com/4b/bd/d8UxLh4q_o.png"
+                alt=""
+              />
+            </div>
+            <div className="relative z-30 flex px-4">
+              <span className="font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm">Failure</span>
+            </div>
+            <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">Flight #1</h6>
+            <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">Engine failure at 33 seconds and loss of vehicle</p>
+          </article>
+
+          <article className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4">
+            <div className="card-content"></div>
+            <div className="relative z-30 flex justify-center items-center">
+              <img
+                className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
+                src="https://images2.imgbox.com/40/e3/GypSkayF_o.png"
+                alt=""
+              />
+            </div>
+            <div className="relative z-30 flex px-4">
+              <span className="font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm">Failure</span>
+            </div>
+            <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">Flight #1</h6>
+            <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">Engine failure at 33 seconds and loss of vehicle</p>
+          </article>
+
+          <article className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4">
+            <div className="card-content"></div>
+            <div className="relative z-30 flex justify-center items-center">
+              <img
+                className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
+                src="https://images2.imgbox.com/be/e7/iNqsqVYM_o.png"
+                alt=""
+              />
+            </div>
+            <div className="relative z-30 flex px-4">
+              <span className="font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm">Failure</span>
+            </div>
+            <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">Flight #1</h6>
+            <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">Engine failure at 33 seconds and loss of vehicle</p>
+          </article>
+
+          <article className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4">
+            <div className="card-content"></div>
+            <div className="relative z-30 flex justify-center items-center">
+              <img
+                className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
+                src="https://images2.imgbox.com/4b/bd/d8UxLh4q_o.png"
+                alt=""
+              />
+            </div>
+            <div className="relative z-30 flex px-4">
+              <span className="font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm">Failure</span>
+            </div>
+            <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">Flight #1</h6>
+            <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">Engine failure at 33 seconds and loss of vehicle</p>
+          </article>
+        </section>
       </main>
     </>
   );
