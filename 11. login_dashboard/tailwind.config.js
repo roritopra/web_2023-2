@@ -13,10 +13,13 @@ module.exports = withMT({
     extend: {
       colors: {
         'light-white': 'rgba(255, 255, 255, 0.18)',
+        'card-ligh': 'rgba(255, 255, 255, 0.1)',
       },
     },
     fontFamily: {
       roobert: ['Roobert regular', 'Inter', 'sans-serif'],
+      roobertLight: ['Roobert light', 'Inter', 'sans-serif'],
+      roobertSemiBold: ['Roobert Semibold', 'Inter', 'sans-serif'],
       din: ['DIN', 'Inter', 'sans-serif'],
     },
   },

@@ -54,105 +54,25 @@ export function LaunchesPage() {
           </div>
         </section>
 
-        <div id="cards" className="grid mx-4 gap-3 mt-32 sm:grid-cols-2 lg:grid-cols-3 lg:mx-14">
-
-          <div className="card">
-            <div className="card-content">
-              <div className="card-image">
-                <i className="fa-duotone fa-apartment"></i>
-              </div>
-              <div className="card-info-wrapper">
-                <div className="card-info">
-                  <i className="fa-duotone fa-apartment"></i>
-                  <div className="card-info-title">
-                    <h3>Apartments</h3>
-                    <h4>Places to be apart. Wait, what?</h4>
-                  </div>
-                </div>
-              </div>
+        <div
+          id="cards"
+          className="grid mx-2 gap-3 mt-32 sm:grid-cols-2 lg:grid-cols-3 lg:mx-14"
+        >
+          <article className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4">
+            <div className="card-content"></div>
+            <div className="relative z-50 flex justify-center items-center">
+              <img
+                className="overflow-hidden w-full mb-11 px-14"
+                src="https://images2.imgbox.com/40/e3/GypSkayF_o.png"
+                alt=""
+              />
             </div>
-
-          </div>
-          <div className="card">
-            <div className="card-content">
-              <div className="card-image">
-                <i className="fa-duotone fa-unicorn"></i>
-              </div>
-              <div className="card-info-wrapper">
-                <div className="card-info">
-                  <i className="fa-duotone fa-unicorn"></i>
-                  <div className="card-info-title">
-                    <h3>Unicorns</h3>
-                    <h4>A single corn. Er, I mean horn.</h4>
-                  </div>
-                </div>
-              </div>
+            <div className="relative z-50 flex px-4">
+              <span className="font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm">Failure</span>
             </div>
-          </div>
-          <div className="card">
-            <div className="card-content">
-              <div className="card-image">
-                <i className="fa-duotone fa-blender-phone"></i>
-              </div>
-              <div className="card-info-wrapper">
-                <div className="card-info">
-                  <i className="fa-duotone fa-blender-phone"></i>
-                  <div className="card-info-title">
-                    <h3>Blender Phones</h3>
-                    <h4>These absolutely deserve to exist.</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-content">
-              <div className="card-image">
-                <i className="fa-duotone fa-person-to-portal"></i>
-              </div>
-              <div className="card-info-wrapper">
-                <div className="card-info">
-                  <i className="fa-duotone fa-person-to-portal"></i>
-                  <div className="card-info-title">
-                    <h3>Adios</h3>
-                    <h4>See you...</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-content">
-              <div className="card-image">
-                <i className="fa-duotone fa-person-from-portal"></i>
-              </div>
-              <div className="card-info-wrapper">
-                <div className="card-info">
-                  <i className="fa-duotone fa-person-from-portal"></i>
-                  <div className="card-info-title">
-                    <h3>I mean hello</h3>
-                    <h4>...over here.</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-content">
-              <div className="card-image">
-                <i className="fa-duotone fa-otter"></i>
-              </div>
-              <div className="card-info-wrapper">
-                <div className="card-info">
-                  <i className="fa-duotone fa-otter"></i>
-                  <div className="card-info-title">
-                    <h3>Otters</h3>
-                    <h4>Look at me, imma cute lil fella.</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <h6 className="relative z-50 font-roobert text-white px-4 text-xl mb-7">Flight #1</h6>
+            <p className="relative z-50 px-4 text-white font-roobertLight  text-sm">Engine failure at 33 seconds and loss of vehicle</p>
+          </article>
         </div>
       </main>
     </>

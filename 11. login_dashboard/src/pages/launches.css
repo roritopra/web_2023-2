@@ -7,18 +7,6 @@
   opacity: 1;
 }
 
-.card {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  height: 260px;
-  width: 100%;  
-  flex-direction: column;
-  position: relative;
-  
-}
-
 .card:hover::before {
   opacity: 1;
 }
@@ -65,65 +53,6 @@
   position: absolute;
   z-index: 2;
 }
-
-/* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
-
-h1, h2, h3, h4, span {
-  color: rgb(240, 240, 240);
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
-  margin: 0px;
-}
-
-i {  
-  color: rgb(240, 240, 240);
-}
-
-.card-image {
-  align-items: center;
-  display: flex;
-  height: 140px;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.card-image > i {
-  font-size: 6em;
-  opacity: 0.25;
-}
-
-.card-info-wrapper {
-  align-items: center;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  padding: 0px 20px;
-}
-
-.card-info {
-  align-items: flex-start;
-  display: flex;
-  gap: 10px;
-}
-
-.card-info > i {  
-  font-size: 1em;
-  height: 20px;
-  line-height: 20px;
-}
-
-.card-info-title > h3 {
-  font-size: 1.1em;
-  line-height: 20px;
-}
-
-.card-info-title > h4 {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.85em;
-  margin-top: 8px;
-}
-
-/* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 
 
 
