@@ -13,7 +13,6 @@ export function LaunchesPage() {
     }
   }
 
-
   return (
     <>
     <Menu />
@@ -59,7 +58,15 @@ export function LaunchesPage() {
 
 
 
-<div id="cards">
+<div id="cards" className="grid mx-14 gap-7 sm:grid-cols-2 lg:grid-cols-3 mt-32 ">
+  <div className="card">
+    <div className="card-content">
+    </div>
+  </div>
+  <div className="card">
+    <div className="card-content">
+    </div>
+  </div>
   <div className="card">
     <div className="card-content">
     </div>
