@@ -7,14 +7,32 @@ export function RegisterPage() {
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
             <div className="flex justify-center items-center">
-              <img src="/logo-light.png" alt="Logo" className="w-[80%]" />
+              <img
+              src="/logo-light.png" 
+              alt="Logo" 
+              className="w-[80%]"
+              data-aos="fade-down"
+              data-aos-duration="1200"
+              data-aos-delay="100"
+              />
             </div>
-            <p className="mt-4 text-white">
+            <p 
+            className="mt-4 text-white"
+            data-aos="fade-down"
+            data-aos-duration="1200"
+            data-aos-delay="200"
+            >
               Welcome to the leading registry for rocket launches and space exploration, with up-to-date mission and rocket information.
             </p>
           </div>
 
-          <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+          <form 
+          action="" 
+          className="mx-auto mb-0 mt-8 max-w-md space-y-4"
+          data-aos="fade-down"
+          data-aos-duration="1200"
+          data-aos-delay="300"
+          >
             <div>
               <label for="email" className="sr-only text-white">
                 Email

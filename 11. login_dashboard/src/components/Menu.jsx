@@ -6,7 +6,7 @@ function Menu() {
   return (
     <>
       <header
-        className="py-6 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
+        className="py-8 px-16 flex items-center fixed top-0 w-full justify-between z-40 text-white"
         data-aos="fade-down"
         data-aos-duration="1200"
         data-aos-delay="200"

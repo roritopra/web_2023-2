@@ -1,21 +1,38 @@
 import { Button } from "@material-tailwind/react";
 
 export function LoginPage() {
-  
   return (
     <>
       <section className="relative flex flex-row-reverse flex-wrap lg:h-screen lg:items-center">
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
             <div className="flex justify-center items-center">
-              <img src="/logo-dark.png" alt="Logo" className="w-[80%]" />
+              <img
+                src="/logo-dark.png"
+                alt="Logo"
+                className="w-[80%]"
+                data-aos="fade-down"
+                data-aos-duration="1200"
+                data-aos-delay="100"
+              />
             </div>
-            <p className="mt-4 text-gray-500">
-            Enter the leading portal for rocket launches and space exploration to access up-to-date information on missions and rockets.
+            <p 
+            className="mt-4 text-gray-500"
+            data-aos="fade-down"
+            data-aos-duration="1200"
+            data-aos-delay="200">
+              Enter the leading portal for rocket launches and space exploration
+              to access up-to-date information on missions and rockets.
             </p>
           </div>
 
-          <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+          <form
+          action=""
+          className="mx-auto mb-0 mt-8 max-w-md space-y-4"
+          data-aos="fade-down"
+          data-aos-duration="1200"
+          data-aos-delay="300"
+          >
             <div>
               <label for="email" className="sr-only">
                 Email
@@ -109,4 +126,3 @@ export function LoginPage() {
     </>
   );
 }
-
