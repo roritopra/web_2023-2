@@ -1,5 +1,5 @@
 import { Carousel, Typography } from "@material-tailwind/react";
-import Menu from "../components/Menu";
+import Menu from "../components/Navbar";
 
 export function LandingPage() {
   return (

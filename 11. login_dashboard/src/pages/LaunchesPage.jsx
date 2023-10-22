@@ -1,4 +1,4 @@
-import Menu from "../components/Menu";
+import Menu from "../components/Navbar";
 import data from "../data/launches.json";
 import "./launches.css";
 
@@ -55,6 +55,21 @@ export function LaunchesPage() {
           </div>
         </section>
 
+        <aside className="flex justify-center gap-3 items-center mt-32 mb-24 lg:mx-14">
+          <div className="px-14 lg:px-7 w-full">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Falcon 9, Falcon Heavy, Starship"
+              className="rounded-xl py-3 text-[#e9e9e9] bg-[#434343] w-full placeholder:font-roobertLight placeholder:text-[#8a8a8a]"
+            />
+          </div>
+          <button className="py-3 px-9 rounded-lg bg-[#434343] text-white font-roobertLight text-base hover:bg-[#5e5e5e]">
+            Search
+          </button>
+        </aside>
+
         <section
           id="cards"
           className="grid mx-2 gap-3 mt-32 sm:grid-cols-2 lg:grid-cols-3 lg:mx-14"
@@ -68,8 +83,8 @@ export function LaunchesPage() {
               <div className="relative z-30 flex justify-center items-center">
                 <img
                   className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
-                  src="https://images2.imgbox.com/40/e3/GypSkayF_o.png"
-                  alt=""
+                  src={launch.links.mission_patch}
+                  alt="Launch patch image"
                 />
               </div>
               <div className="relative z-30 flex px-4">
