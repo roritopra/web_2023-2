@@ -9,11 +9,21 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
+window.addEventListener("scroll", function(){
+  var header = document.querySelector("header");
+  if (window.scrollY>150) {
+    header.classList.add("hidden");
+  } else {
+    header.classList.remove("hidden");
+  }
+})
+
 function Navbar() {
   return (
     <>
       <header
-        className="py-8 px-16 flex items-center fixed top-0 w-full justify-between z-40 text-white"
+        id="header"
+        className="py-8 px-16 flex items-center fixed top-0 w-full justify-between z-40 text-white transition-[0.7s]"
         data-aos="fade-down"
         data-aos-duration="1200"
         data-aos-delay="200"
