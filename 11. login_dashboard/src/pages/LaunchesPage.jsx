@@ -1,4 +1,4 @@
-import Menu from "../components/Navbar";
+import { Navbar } from "../components/Navbar";
 import data from "../data/launches.json";
 import "./launches.css";
 
@@ -16,7 +16,7 @@ export function LaunchesPage() {
 
   return (
     <>
-      <Menu />
+      <Navbar />
       <main className="bg-black">
         <header className="h-screen overflow-hidden relative z-20">
           <div className="relative h-full w-full">

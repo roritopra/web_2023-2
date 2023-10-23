@@ -18,7 +18,7 @@ window.addEventListener("scroll", function(){
   }
 })
 
-function Navbar() {
+export function Navbar() {
   return (
     <>
       <header
@@ -86,5 +86,3 @@ function Navbar() {
     </>
   );
 }
-
-export default Navbar;

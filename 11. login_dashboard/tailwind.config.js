@@ -1,4 +1,3 @@
-import flowbitePlugin from 'flowbite/plugin';
 const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = withMT({
@@ -24,7 +23,7 @@ module.exports = withMT({
     },
   },
   plugins: [
-    flowbitePlugin
+    require('flowbite/plugin')
   ],
 });
 
