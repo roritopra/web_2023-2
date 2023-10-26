@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
 
 export function RegisterPage() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
-    navigate('/home');
+    navigate("/home");
   };
 
   return (
@@ -17,31 +18,32 @@ export function RegisterPage() {
           <div className="mx-auto max-w-lg text-center">
             <div className="flex justify-center items-center">
               <img
-              src="/logo-light.png" 
-              alt="Logo" 
-              className="w-[80%]"
-              data-aos="fade-down"
-              data-aos-duration="1200"
-              data-aos-delay="100"
+                src="/logo-light.png"
+                alt="Logo"
+                className="w-[80%]"
+                data-aos="fade-down"
+                data-aos-duration="1200"
+                data-aos-delay="100"
               />
             </div>
-            <p 
-            className="mt-4 text-white"
-            data-aos="fade-down"
-            data-aos-duration="1200"
-            data-aos-delay="200"
+            <p
+              className="mt-4 text-white"
+              data-aos="fade-down"
+              data-aos-duration="1200"
+              data-aos-delay="200"
             >
-              Welcome to the leading registry for rocket launches and space exploration, with up-to-date mission and rocket information.
+              Welcome to the leading registry for rocket launches and space
+              exploration, with up-to-date mission and rocket information.
             </p>
           </div>
 
-          <form 
-          action="" 
-          className="mx-auto mb-0 mt-8 max-w-md space-y-4"
-          data-aos="fade-down"
-          data-aos-duration="1200"
-          data-aos-delay="300"
-          onSubmit={handleSubmit}
+          <form
+            action=""
+            className="mx-auto mb-0 mt-8 max-w-md space-y-4"
+            data-aos="fade-down"
+            data-aos-duration="1200"
+            data-aos-delay="300"
+            onSubmit={handleSubmit}
           >
             <div>
               <label for="email" className="sr-only text-white">
@@ -116,11 +118,13 @@ export function RegisterPage() {
             <div className="flex items-center justify-between">
               <p className="text-sm text-white">
                 Do you have account?
-                <a className="underline" href="/login">
+                <Link to="/login" className="underline">
                   Log in
-                </a>
+                </Link>
               </p>
-              <Button type="submit" color="white">Sign in</Button>
+              <Button type="submit" color="white">
+                Sign in
+              </Button>
             </div>
           </form>
         </div>
@@ -136,4 +140,3 @@ export function RegisterPage() {
     </>
   );
 }
-

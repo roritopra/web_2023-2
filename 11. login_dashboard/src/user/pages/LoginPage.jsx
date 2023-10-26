@@ -1,13 +1,13 @@
-import { useNavigate } from 'react-router-dom'; // Importar useNavigate
+import { Link, Navigate, useNavigate } from "react-router-dom"; // Importar useNavigate
 import { Button } from "@material-tailwind/react";
 
 export function LoginPage() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
-    navigate('/home');
+    navigate("/home");
   };
 
   return (
@@ -25,23 +25,24 @@ export function LoginPage() {
                 data-aos-delay="100"
               />
             </div>
-            <p 
-            className="mt-4 text-gray-500"
-            data-aos="fade-down"
-            data-aos-duration="1200"
-            data-aos-delay="200">
+            <p
+              className="mt-4 text-gray-500"
+              data-aos="fade-down"
+              data-aos-duration="1200"
+              data-aos-delay="200"
+            >
               Enter the leading portal for rocket launches and space exploration
               to access up-to-date information on missions and rockets.
             </p>
           </div>
 
           <form
-          action=""
-          className="mx-auto mb-0 mt-8 max-w-md space-y-4"
-          data-aos="fade-down"
-          data-aos-duration="1200"
-          data-aos-delay="300"
-          onSubmit={handleSubmit}
+            action=""
+            className="mx-auto mb-0 mt-8 max-w-md space-y-4"
+            data-aos="fade-down"
+            data-aos-duration="1200"
+            data-aos-delay="300"
+            onSubmit={handleSubmit}
           >
             <div>
               <label for="email" className="sr-only">
@@ -116,9 +117,9 @@ export function LoginPage() {
             <div className="flex items-center justify-between">
               <p className="text-sm text-gray-500">
                 No account?
-                <a className="underline" href="/register">
+                <Link to="/register" className="underline">
                   Register
-                </a>
+                </Link>
               </p>
               <Button type="submit">Log in</Button>
             </div>
