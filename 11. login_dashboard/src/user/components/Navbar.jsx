@@ -26,7 +26,7 @@ export function Navbar() {
   console.log(state);
 
   const onSignOut = () => {
-    navigate("/login", {
+    navigate("/", {
       replace: true,
     });
   };
@@ -98,9 +98,9 @@ export function Navbar() {
           </nav>
         ) : (
           <nav className="flex flex-grow justify-end basis-0">
-            <Button color="white">
-              <Link to="/login">Log in</Link>
-            </Button>
+            <Link to="/login">
+              <Button color="white">Log in</Button>
+            </Link>
           </nav>
         )}
       </header>
