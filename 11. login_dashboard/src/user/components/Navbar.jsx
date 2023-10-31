@@ -1,4 +1,5 @@
 import { Menulinks } from "../menuLinks/menuLinks";
+import { useState, useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   Menu,
@@ -10,16 +11,8 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-window.addEventListener("scroll", function () {
-  var header = document.querySelector("header");
-  if (window.scrollY > 150) {
-    header.classList.add("hidden");
-  } else {
-    header.classList.remove("hidden");
-  }
-});
-
 export function Navbar() {
+  const [isHeaderHidden, setHeaderHidden] = useState(false);
   const navigate = useNavigate();
 
   const { state } = useLocation();
@@ -31,14 +24,31 @@ export function Navbar() {
     });
   };
 
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 150) {
+        setHeaderHidden(true);
+      } else {
+        setHeaderHidden(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <header
         id="header"
-        className="py-8 px-16 flex items-center fixed top-0 w-full justify-between z-40 text-white transition-[0.7s]"
+        className={`py-8 px-16 flex items-center fixed top-0 w-full justify-between z-40 text-white transition-[0.7s] ${
+          isHeaderHidden ? "hidden" : ""
+        }`}
         data-aos="fade-down"
         data-aos-duration="1200"
-        data-aos-delay="200"
       >
         <div className="flex flex-grow basis-0">
           <Link to="/" className="w-25px h-46px">
