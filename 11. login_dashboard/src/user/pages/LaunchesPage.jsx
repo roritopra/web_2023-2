@@ -18,27 +18,45 @@ export function LaunchesPage() {
   const [launches, setLaunches] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
   const launchesPerPage = 9;
 
-  const indexOfLastFight = (currentPage + 1) * launchesPerPage;
-  const indexOfFirstFight = indexOfLastFight - launchesPerPage;
-  const currentLaunches = launches.slice(indexOfFirstFight, indexOfLastFight);
+  const indexOfLastLaunch = (currentPage + 1) * launchesPerPage;
+  const indexOfFirstLaunch = indexOfLastLaunch - launchesPerPage;
+  const currentLaunches = launches.slice(indexOfFirstLaunch, indexOfLastLaunch);
 
   function handlePageClick(data) {
     const selectedPage = data.selected;
     setCurrentPage(selectedPage);
   }
 
+  const handleSearch = () => {
+    const filteredLaunches = launches.filter((launch) => {
+      const flightNumber = launch.flight_number.toString();
+      const details = (launch.details || "").toLowerCase();
+
+      return (
+        flightNumber.includes(searchTerm) ||
+        details.includes(searchTerm.toLowerCase())
+      );
+    });
+
+    setLaunches(filteredLaunches);
+    setCurrentPage(0);
+  };
+
   useEffect(() => {
-    fetchData()
-      .then((data) => {
-        setLaunches(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error al obtener datos:", error);
-      });
-  }, []);
+    if (searchTerm === "") {
+      fetchData()
+        .then((data) => {
+          setLaunches(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error al obtener datos:", error);
+        });
+    }
+  }, [searchTerm]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -84,17 +102,20 @@ export function LaunchesPage() {
           </div>
         </section>
 
-        <aside className="flex justify-center gap-3 items-center mt-32 mb-24 lg:mx-14">
-          <div className="px-14 lg:px-7 w-full">
+        <aside className="flex px-1 justify-center gap-2 items-center mt-32 mb-24 lg:mx-14 lg:gap-3">
+          <div className="lg:px-1 w-full lg:w-3/5">
             <input
               type="text"
-              name=""
-              id=""
-              placeholder="Falcon 9, Falcon Heavy, Starship"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search by flight number or details"
               className="rounded-xl py-3 text-[#e9e9e9] bg-[#434343] w-full placeholder:font-roobertLight placeholder:text-[#8a8a8a]"
             />
           </div>
-          <button className="py-3 px-9 rounded-lg bg-[#434343] text-white font-roobertLight text-base hover:bg-[#5e5e5e]">
+          <button
+            className="py-3 px-6 rounded-lg bg-[#434343] text-white font-roobertLight text-base hover:bg-[#5e5e5e]"
+            onClick={() => handleSearch()}
+          >
             Search
           </button>
         </aside>
@@ -191,11 +212,11 @@ export function LaunchesPage() {
             pageRangeDisplayed={5}
             onPageChange={handlePageClick}
             containerClassName={"flex items-center -space-x-px h-10 text-sm"}
-            pageClassName={"hidden sm:block"} 
+            pageClassName={"hidden sm:block"}
             pageLinkClassName={
               "flex items-center justify-center font-roobert px-4 h-10 leading-tight text-white bg-[#434343] border border-[#6B7280] hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
             }
-            breakClassName={"hidden sm:block"} 
+            breakClassName={"hidden sm:block"}
             previousClassName={""}
             nextClassName={""}
             previousLinkClassName={""}
