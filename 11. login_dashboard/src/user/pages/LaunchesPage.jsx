@@ -182,7 +182,7 @@ export function LaunchesPage() {
               </div>
             }
             breakLabel={
-              <div className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-[#434343] border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              <div className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-[#434343] border border-[#6B7280] hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                 ...
               </div>
             }
@@ -191,11 +191,11 @@ export function LaunchesPage() {
             pageRangeDisplayed={5}
             onPageChange={handlePageClick}
             containerClassName={"flex items-center -space-x-px h-10 text-sm"}
-            pageClassName={"hidden sm:block"} // Oculta los números de página en pantallas pequeñas (responsive)
+            pageClassName={"hidden sm:block"} 
             pageLinkClassName={
               "flex items-center justify-center font-roobert px-4 h-10 leading-tight text-white bg-[#434343] border border-[#6B7280] hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
             }
-            breakClassName={"hidden sm:block"} // Oculta los puntos suspensivos en pantallas pequeñas (responsive)
+            breakClassName={"hidden sm:block"} 
             previousClassName={""}
             nextClassName={""}
             previousLinkClassName={""}
