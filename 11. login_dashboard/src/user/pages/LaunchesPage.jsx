@@ -42,7 +42,6 @@ export function LaunchesPage() {
     });
 
     if (filteredFights.length === 0) {
-      // No se encontraron resultados
       setLaunches([]);
       setCurrentPage(0);
     } else {
@@ -59,7 +58,7 @@ export function LaunchesPage() {
           setLoading(false);
         })
         .catch((error) => {
-          console.error("Error al obtener datos:", error);
+          console.error("Error loading data", error);
         });
     }
   }, [searchTerm]);
