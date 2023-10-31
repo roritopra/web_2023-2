@@ -1,5 +1,5 @@
 import { Menulinks } from "../menuLinks/menuLinks";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import {
   Menu,
   MenuHandler,
@@ -29,9 +29,9 @@ export function Navbar() {
         data-aos-delay="200"
       >
         <div className="flex flex-grow basis-0">
-          <a href="/home" className="w-25px h-46px">
+          <Link to="/" className="w-25px h-46px">
             <img src="/logo-light.png" alt="Logo" className="w-[300px]" />
-          </a>
+          </Link>
         </div>
 
         <nav className="hidden lg:block sm:hidden">
@@ -83,6 +83,8 @@ export function Navbar() {
     `}
         ></div>
       </header>
+
+      <Outlet />
     </>
   );
 }

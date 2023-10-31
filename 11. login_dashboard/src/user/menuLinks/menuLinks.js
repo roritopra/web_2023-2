@@ -2,7 +2,7 @@ export const Menulinks = [
     {   
         id: 1,
         text: 'Home',
-        path: '/home'
+        path: '/'
     },
     {   
         id: 2,
