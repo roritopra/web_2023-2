@@ -1,5 +1,5 @@
-import { Navbar } from "../components/Navbar";
-import data from "../data/launches.json";
+import { useEffect, useState } from "react";
+import { fetchData } from "../../services/apiService";
 import "./launches.css";
 
 export function LaunchesPage() {
@@ -14,9 +14,26 @@ export function LaunchesPage() {
     }
   };*/
 
+  const [launches, setLaunches] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchData()
+      .then((data) => {
+        setLaunches(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error al obtener datos:", error);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+
   return (
     <>
-      <Navbar />
       <main className="bg-black">
         <header className="h-screen overflow-hidden relative z-20">
           <div className="relative h-full w-full">
@@ -74,7 +91,7 @@ export function LaunchesPage() {
           id="cards"
           className="grid mx-2 gap-3 mt-32 sm:grid-cols-2 lg:grid-cols-3 lg:mx-14"
         >
-          {data.map((launch, index) => (
+          {launches.map((launches, index) => (
             <article
               key={index}
               className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4"
@@ -83,28 +100,28 @@ export function LaunchesPage() {
               <div className="relative z-30 flex justify-center items-center">
                 <img
                   className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
-                  src={launch.links.mission_patch}
+                  src={launches.links.mission_patch}
                   alt="Launch patch image"
                 />
               </div>
               <div className="relative z-30 flex px-4">
                 <span
                   className={`${
-                    launch.launch_success
+                    launches.launch_success
                       ? "font-roobertSemiBold text-green-900 text-xs px-3 py-[1px] mb-3 bg-green-400 rounded-md lg:text-sm"
                       : "font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm"
                   }`}
                 >
-                  {launch.launch_success ? "Success" : "Failure"}
+                  {launches.launch_success ? "Success" : "Failure"}
                 </span>
               </div>
               <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">
-                Flight #{launch.flight_number}
+                Flight #{launches.flight_number}
               </h6>
               <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">
-                {(launch.details != null) & (launch.details?.length > 100)
-                  ? launch.details.slice(0, 100) + "..."
-                  : launch.details}
+                {(launches.details != null) & (launches.details?.length > 100)
+                  ? launches.details.slice(0, 100) + "..."
+                  : launches.details}
               </p>
             </article>
           ))}
