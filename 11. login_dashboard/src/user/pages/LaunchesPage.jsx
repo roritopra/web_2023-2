@@ -31,7 +31,7 @@ export function LaunchesPage() {
   }
 
   const handleSearch = () => {
-    const filteredLaunches = launches.filter((launch) => {
+    const filteredFights = launches.filter((launch) => {
       const flightNumber = launch.flight_number.toString();
       const details = (launch.details || "").toLowerCase();
 
@@ -41,8 +41,14 @@ export function LaunchesPage() {
       );
     });
 
-    setLaunches(filteredLaunches);
-    setCurrentPage(0);
+    if (filteredFights.length === 0) {
+      // No se encontraron resultados
+      setLaunches([]);
+      setCurrentPage(0);
+    } else {
+      setLaunches(filteredFights);
+      setCurrentPage(0);
+    }
   };
 
   useEffect(() => {
@@ -119,46 +125,53 @@ export function LaunchesPage() {
             Search
           </button>
         </aside>
-
-        <section
-          id="cards"
-          className="grid mx-2 gap-3 mt-32 sm:grid-cols-2 lg:grid-cols-3 lg:mx-14"
-        >
-          {currentLaunches.map((launches, index) => (
-            <article
-              key={index}
-              className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4"
-            >
-              <div className="card-content"></div>
-              <div className="relative z-30 flex justify-center items-center">
-                <img
-                  className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
-                  src={launches.links.mission_patch}
-                  alt="Launch patch image"
-                />
-              </div>
-              <div className="relative z-30 flex px-4">
-                <span
-                  className={`${
-                    launches.launch_success
-                      ? "font-roobertSemiBold text-green-900 text-xs px-3 py-[1px] mb-3 bg-green-400 rounded-md lg:text-sm"
-                      : "font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm"
-                  }`}
-                >
-                  {launches.launch_success ? "Success" : "Failure"}
-                </span>
-              </div>
-              <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">
-                Flight #{launches.flight_number}
-              </h6>
-              <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">
-                {(launches.details != null) & (launches.details?.length > 100)
-                  ? launches.details.slice(0, 100) + "..."
-                  : launches.details}
-              </p>
-            </article>
-          ))}
-        </section>
+        {currentLaunches.length === 0 ? (
+          <div className="flex justify-center items-center">
+            <p className="font-roobert text-white text-xl text-ccenter">
+              No results for &ldquo;{searchTerm}&rdquo;
+            </p>
+          </div>
+        ) : (
+          <section
+            id="cards"
+            className="grid mx-2 gap-3 mt-32 sm:grid-cols-2 lg:grid-cols-3 lg:mx-14"
+          >
+            {currentLaunches.map((launches, index) => (
+              <article
+                key={index}
+                className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4"
+              >
+                <div className="card-content"></div>
+                <div className="relative z-30 flex justify-center items-center">
+                  <img
+                    className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
+                    src={launches.links.mission_patch}
+                    alt="Launch patch image"
+                  />
+                </div>
+                <div className="relative z-30 flex px-4">
+                  <span
+                    className={`${
+                      launches.launch_success
+                        ? "font-roobertSemiBold text-green-900 text-xs px-3 py-[1px] mb-3 bg-green-400 rounded-md lg:text-sm"
+                        : "font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm"
+                    }`}
+                  >
+                    {launches.launch_success ? "Success" : "Failure"}
+                  </span>
+                </div>
+                <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">
+                  Flight #{launches.flight_number}
+                </h6>
+                <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">
+                  {(launches.details != null) & (launches.details?.length > 100)
+                    ? launches.details.slice(0, 100) + "..."
+                    : launches.details}
+                </p>
+              </article>
+            ))}
+          </section>
+        )}
 
         <nav className="flex justify-center items-center py-20">
           <ReactPaginate
