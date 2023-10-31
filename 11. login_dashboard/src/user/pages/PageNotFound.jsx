@@ -21,7 +21,7 @@ export function PageNotFound() {
               Try searching again, or return home to start from the beginning.
             </p>
 
-            <Link to='/home'>
+            <Link to='/'>
               <Button
                 color="white"
                 size="lg"
