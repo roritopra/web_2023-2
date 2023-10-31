@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 import { fetchData } from "../../services/apiService";
 import "./launches.css";
 
@@ -16,6 +17,17 @@ export function LaunchesPage() {
 
   const [launches, setLaunches] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(0);
+  const launchesPerPage = 9;
+
+  const indexOfLastFight = (currentPage + 1) * launchesPerPage;
+  const indexOfFirstFight = indexOfLastFight - launchesPerPage;
+  const currentLaunches = launches.slice(indexOfFirstFight, indexOfLastFight);
+
+  function handlePageClick(data) {
+    const selectedPage = data.selected;
+    setCurrentPage(selectedPage);
+  }
 
   useEffect(() => {
     fetchData()
@@ -29,7 +41,7 @@ export function LaunchesPage() {
   }, []);
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -87,11 +99,76 @@ export function LaunchesPage() {
           </button>
         </aside>
 
+        <ReactPaginate
+          previousLabel={
+            <div className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-white bg-[#434343] border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              <span className="sr-only">Previous</span>
+              <svg
+                className="w-2.5 h-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 1 1 5l4 4"
+                />
+              </svg>
+            </div>
+          }
+          nextLabel={
+            <div className="flex items-center justify-center px-3 h-8 leading-tight text-white bg-[#434343] border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              <span className="sr-only">Next</span>
+              <svg
+                className="w-2.5 h-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 9 4-4-4-4"
+                />
+              </svg>
+            </div>
+          }
+          breakLabel={
+            <div className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-[#434343] border border-[gray-300] hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              ...
+            </div>
+          }
+          pageCount={Math.ceil(launches.length / launchesPerPage)}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={"flex items-center -space-x-px h-8 text-sm"}
+          pageClassName={""}
+          pageLinkClassName={
+            "flex items-center justify-center px-3 h-8 leading-tight text-white bg-[#434343] border border-[#8a8a8a]hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          }
+          breakClassName={""}
+          previousClassName={""}
+          nextClassName={""}
+          previousLinkClassName={""}
+          nextLinkClassName={""}
+          activeClassName={
+            "z-50 flex items-center justify-center h-8 leading-tight text-blue-600 border border-[#8a8a8a] bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-[#8a8a8a] dark:bg-gray-700 dark:text-white"
+          }
+        />
+
         <section
           id="cards"
           className="grid mx-2 gap-3 mt-32 sm:grid-cols-2 lg:grid-cols-3 lg:mx-14"
         >
-          {launches.map((launches, index) => (
+          {currentLaunches.map((launches, index) => (
             <article
               key={index}
               className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4"

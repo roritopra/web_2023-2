@@ -1,10 +1,8 @@
 import { Carousel, Typography } from "@material-tailwind/react";
-import { Navbar } from "../components/Navbar";
 
 export function LandingPage() {
   return (
     <>
-      <Navbar />
       <Carousel
         className="h-screen overflow-hidden relative z-20"
         navigation={({ setActiveIndex, activeIndex, length }) => (
