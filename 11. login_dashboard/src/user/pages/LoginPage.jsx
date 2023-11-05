@@ -13,13 +13,14 @@ export function LoginPage() {
 
   const onLogin = (event) => {
     event.preventDefault();
+    localStorage.setItem('user', JSON.stringify({ name, email, password }));
     navigate("/launches", {
       replace: true,
       state: { isLogged: true, name },
     });
     onResetForm();
   };
-
+  
   return (
     <>
       <section className="relative bg-white flex flex-row-reverse flex-wrap lg:h-screen lg:items-center">
