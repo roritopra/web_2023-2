@@ -14,6 +14,7 @@ export function RegisterPage() {
 
   const onRegister = (event) => {
     event.preventDefault();
+    window.localStorage.setItem('user', JSON.stringify({ name, email, password }));
     navigate("/launches", {
       replace: true,
       state: { isLogged: true, name },

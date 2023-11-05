@@ -13,12 +13,18 @@ export function LoginPage() {
 
   const onLogin = (event) => {
     event.preventDefault();
-    localStorage.setItem('user', JSON.stringify({ name, email, password }));
-    navigate("/launches", {
-      replace: true,
-      state: { isLogged: true, name },
-    });
-    onResetForm();
+  
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+  
+    if (storedUser && storedUser.email === email && storedUser.password === password) {
+      navigate("/launches", {
+        replace: true,
+        state: { isLogged: true, name },
+      });
+      onResetForm();
+    } else {
+      return alert('Invalid credentials');
+    }
   };
   
   return (
