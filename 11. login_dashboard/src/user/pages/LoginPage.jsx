@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
 import { useForm } from "../../hook/useForm";
+import { Toast } from "flowbite-react";
+import { HiX } from "react-icons/hi";
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -11,25 +14,42 @@ export function LoginPage() {
     password: "",
   });
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const onLogin = (event) => {
     event.preventDefault();
-  
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-  
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
+
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (
+      storedUser &&
+      storedUser.email === email &&
+      storedUser.password === password
+    ) {
       navigate("/launches", {
         replace: true,
         state: { isLogged: true, name },
       });
       onResetForm();
     } else {
-      return alert('Invalid credentials');
+      setErrorMessage("Invalid credentials");
     }
   };
-  
+
   return (
     <>
       <section className="relative bg-white flex flex-row-reverse flex-wrap lg:h-screen lg:items-center">
+        {errorMessage && (
+          <aside className="absolute top-10 z-50 flex items-center justify-center w-screen">
+            <Toast>
+              <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-100 text-red-500 dark:bg-red-800 dark:text-red-200">
+                <HiX className="h-5 w-5" />
+              </div>
+              <div className="ml-3 text-sm font-normal">{errorMessage}</div>
+              <Toast.Toggle />
+            </Toast>
+          </aside>
+        )}
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
             <div className="flex justify-center items-center">
