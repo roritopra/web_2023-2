@@ -6,6 +6,7 @@ import { LaunchesPage } from "./user/pages/LaunchesPage";
 import { LandingPage } from "./user/pages/LandingPage";
 import { PageNotFound } from "./user/pages/PageNotFound";
 import { PrivateRoute } from "./user/router/PrivateRoute";
+import { LaunchDetailPage } from "./user/pages/LaunchDetailPage";
 
 export function AppRouter() {
   return (
@@ -24,6 +25,7 @@ export function AppRouter() {
               </PrivateRoute>
             }
           />
+          <Route path="/launch/:flight_number" element={<LaunchDetailPage />} />
         </Route>
       </Routes>
     </main>

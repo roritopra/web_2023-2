@@ -1,5 +1,5 @@
 import { Menulinks } from "../menuLinks/menuLinks";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   Menu,
@@ -12,11 +12,21 @@ import {
 } from "@material-tailwind/react";
 
 export function Navbar() {
-  const [isHeaderHidden, setHeaderHidden] = useState(false);
   const navigate = useNavigate();
-
   const { state } = useLocation();
-  console.log(state);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const checkScroll = () => {
+      setIsScrolled(window.pageYOffset > 300);
+    };
+
+    window.addEventListener('scroll', checkScroll);
+
+    return () => {
+      window.removeEventListener('scroll', checkScroll);
+    };
+  }, []);
 
   const onSignOut = () => {
     navigate("/", {
@@ -24,31 +34,11 @@ export function Navbar() {
     });
   };
 
-  useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY > 150) {
-        setHeaderHidden(true);
-      } else {
-        setHeaderHidden(false);
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       <header
         id="header"
-        className={`py-8 px-16 flex items-center fixed top-0 w-full justify-between z-40 text-white transition-[0.7s] ${
-          isHeaderHidden ? "hidden" : ""
-        }`}
-        data-aos="fade-down"
-        data-aos-duration="1200"
+        className={`py-8 px-16 flex items-center fixed top-0 w-full justify-between z-40 text-white transition-[0.7s] ${isScrolled ? 'bg-[#000000e8]' : ''}`}
       >
         <div className="flex flex-grow basis-0">
           <Link to="/" className="w-25px h-46px">
