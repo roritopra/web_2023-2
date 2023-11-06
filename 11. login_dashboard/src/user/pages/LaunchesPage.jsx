@@ -144,9 +144,9 @@ export function LaunchesPage() {
               <Link
                 to={`/launch/${launches.flight_number}`}
                 key={index}
-                className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4"
+                className="card relative flex flex-col w-full cursor-pointer rounded-lg py-4 hover:bg-[#707070b7] transition-colors duration-200"
               >
-                <article className="card">
+                <article className="card rounded-lg">
                   <div className="card-content"></div>
                   <div className="relative z-30 flex justify-center items-center">
                     <img
