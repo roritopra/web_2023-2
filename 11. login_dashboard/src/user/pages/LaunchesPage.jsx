@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import { fetchData } from "../../services/apiService";
+import { Spinner } from "flowbite-react";
 import "./launches.css";
 
 export function LaunchesPage() {
@@ -67,7 +68,7 @@ export function LaunchesPage() {
   if (loading) {
     return (
       <div className="grid h-screen place-items-center bg-black">
-        <p className="text-white text-lg font-roobertSemiBold">Loading...</p>
+        <Spinner color="gray" aria-label="Info spinner example" size="xl" />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Spinner } from "flowbite-react";
 
 export function LaunchDetailPage() {
   const { flight_number } = useParams();
@@ -15,7 +16,7 @@ export function LaunchDetailPage() {
     <main className="bg-black">
       {launchData === null ? (
         <div className="grid h-screen place-items-center bg-black">
-            <p className="text-white text-lg font-roobertSemiBold">Loading...</p>
+            <Spinner color="gray" aria-label="Info spinner example" size="xl" />
         </div>
       ) : (
         <section className="pt-36">
