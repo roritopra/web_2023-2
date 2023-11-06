@@ -19,7 +19,15 @@ export function LaunchDetailPage() {
         <div>
           <h1>{launchData.mission_name}</h1>
           <p>{launchData.details}</p>
-          {/* ... display other data as needed */}
+          <iframe
+          width="100%"
+          height="500"
+          src={`https://www.youtube.com/embed/${launchData.links.youtube_id}`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
         </div>
       )}
     </div>
