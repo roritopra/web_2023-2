@@ -35,14 +35,17 @@ export function LaunchDetailPage() {
             <h6 className="text-[#8b939b] font-roobert mb-10 lg:text-lg">
               {launchData.rocket.second_stage.payloads[0].nationality}
             </h6>
-            <p className="text-white text-sm font-roobertLight mb-20 lg:text-lg">
-              {launchData.details === null ? "No details for this launch, you can obtain more info in the wiki" : launchData.details}
+            <p className="text-white text-sm font-roobertLight mb-20 lg:mb-28 lg:text-lg">
+              {launchData.details === null
+                ? "No details for this launch, you can obtain more info in the wiki"
+                : launchData.details}
             </p>
-            <div className="flex justify-center items-center pb-10">
+            <div className="flex justify-center items-center pb-10 lg:pb-20">
               <a
-                className="text-white font-roobert bg-[#434343] w-full text-center py-3 rounded-lg hover:bg-[#8b939b] transition-colors duration-200 lg:w-1/2"
+                className="text-white font-roobert bg-[#434343] w-full text-center py-3 rounded-lg hover:bg-[#8b939b] transition-colors duration-200 lg:w-1/5"
                 target="_blank"
-                href={launchData.links.wikipedia} rel="noreferrer"
+                href={launchData.links.wikipedia}
+                rel="noreferrer"
               >
                 Wikipedia
               </a>
