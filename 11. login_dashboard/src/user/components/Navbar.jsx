@@ -18,7 +18,7 @@ export function Navbar() {
 
   useEffect(() => {
     const checkScroll = () => {
-      setIsScrolled(window.pageYOffset > 300);
+      setIsScrolled(window.pageYOffset > 50);
     };
 
     window.addEventListener('scroll', checkScroll);
