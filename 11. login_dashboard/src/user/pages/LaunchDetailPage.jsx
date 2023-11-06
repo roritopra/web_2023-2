@@ -14,7 +14,9 @@ export function LaunchDetailPage() {
   return (
     <main className="bg-black">
       {launchData === null ? (
-        <p>Loading...</p>
+        <div className="grid h-screen place-items-center bg-black">
+            <p className="text-white text-lg font-roobertSemiBold">Loading...</p>
+        </div>
       ) : (
         <section className="pt-36">
           <iframe

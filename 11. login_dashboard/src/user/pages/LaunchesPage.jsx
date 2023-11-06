@@ -65,7 +65,11 @@ export function LaunchesPage() {
   }, [searchTerm]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="grid h-screen place-items-center bg-black">
+        <p className="text-white text-lg font-roobertSemiBold">Loading...</p>
+      </div>
+    );
   }
 
   return (
@@ -142,7 +146,7 @@ export function LaunchesPage() {
                 key={index}
                 className="card relative flex flex-col w-full bg-card-ligh cursor-pointer rounded-lg py-4"
               >
-                <article>
+                <article className="card">
                   <div className="card-content"></div>
                   <div className="relative z-30 flex justify-center items-center">
                     <img
@@ -165,9 +169,10 @@ export function LaunchesPage() {
                   <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">
                     Flight #{launches.flight_number}
                   </h6>
-                  <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight  text-sm">
-                    {(launches.details != null) &
-                    (launches.details?.length > 100)
+                  <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight text-sm">
+                    {launches.details === null
+                      ? "No data results for this launch"
+                      : launches.details.length > 100
                       ? launches.details.slice(0, 100) + "..."
                       : launches.details}
                   </p>
