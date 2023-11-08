@@ -16,10 +16,18 @@ export function AboutPage() {
           </div>
         </div>
         <div className="flex justify-center flex-col items-center px-5 lg:px-10">
-          <h1 className="bg-gradient-to-r from-white via-white to-[#9c9c9d] bg-clip-text text-transparent font-din text-2xl mb-5 lg:text-6xl lg:mb-14">
+          <h1
+            data-aos="fade-up"
+            data-aos-duration="800"
+            className="bg-gradient-to-r from-white via-white to-[#9c9c9d] bg-clip-text text-transparent font-din text-2xl mb-5 lg:text-6xl lg:mb-14"
+          >
             FIND YOUR FUTURE
           </h1>
-          <p className="text-white text-sm font-roobertLight lg:text-base lg:leading-relaxed lg:w-9/12 lg:text-center">
+          <p
+            data-aos="fade-up"
+            data-aos-duration="800"
+            className="text-white text-sm font-roobertLight lg:text-base lg:leading-relaxed lg:w-9/12 lg:text-center"
+          >
             Welcome to SpaceXplore, your one-stop destination for all things
             SpaceX! We are dedicated to bringing the excitement of space
             exploration right to your fingertips. With SpaceXplore, you can
@@ -28,16 +36,28 @@ export function AboutPage() {
           </p>
         </div>
 
-        <section className="grid gap-20 sm:grid-cols-2 lg:grid-cols-3 mt-32 px-5 lg:px-10">
-          <div className="flex flex-col items-center gap-1">
+        <section className="grid gap-20 mt-24 sm:grid-cols-2 lg:grid-cols-3 lg:mt-0 lg:h-screen place-content-center px-5 lg:px-10">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="800"
+            className="flex flex-col items-center gap-1"
+          >
             <h6 className="text-9xl font-roobert text-white">273</h6>
             <p className="text-white text-base">TOTAL LAUNCHES</p>
           </div>
-          <div className="flex flex-col items-center gap-1">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1100"
+            className="flex flex-col items-center gap-1"
+          >
             <h6 className="text-9xl font-roobert text-white">236</h6>
             <p className="text-white text-base">TOTAL LANDINGS</p>
           </div>
-          <div className="flex flex-col items-center gap-1">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1400"
+            className="flex flex-col items-center gap-1"
+          >
             <h6 className="text-9xl font-roobert text-white">208</h6>
             <p className="text-white text-base">TOTAL REFLIGHTS</p>
           </div>
@@ -46,23 +66,44 @@ export function AboutPage() {
         <section className="bg-black text-white">
           <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
             <div className="mx-auto max-w-3xl text-center">
-              <h1 className="bg-gradient-to-r from-white via-white to-[#9c9c9d] bg-clip-text text-2xl font-din font-extrabold text-transparent sm:text-6xl">
-                UNDERSTAND USER FLOW.
-                <span className="sm:block"> INCREASE CONVERSION. </span>
+              <h1
+                data-aos="fade-up"
+                data-aos-duration="800"
+                className="bg-gradient-to-r from-white via-white to-[#9c9c9d] bg-clip-text text-2xl font-din font-extrabold text-transparent sm:text-6xl"
+              >
+                DISCOVER LAST LAUNCHES
+                <span className="sm:block"> VIDEO REAL TIME </span>
               </h1>
 
-              <p className="mx-auto mt-4 max-w-sm sm:text-base/relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Nesciunt illo tenetur fuga ducimus numquam ea!
+              <p
+                data-aos="fade-up"
+                data-aos-duration="800"
+                className="mx-auto mt-4 max-w-xl sm:text-base/relaxed"
+              >
+                All the information you need to know about SpaceX launches and a
+                lot more. You can also watch the live launch as it happens.
+                SpaceXplore is your one-stop destination for all things SpaceX!
               </p>
 
               <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Link to="/login">
+                <Link
+                  to="/login"
+                  data-aos="fade-right"
+                  data-aos-delay="300"
+                  data-aos-duration="800"
+                >
                   <Button color="white">Get Started</Button>
                 </Link>
 
-                <Link to="/login">
-                  <Button color="white" variant="outlined">Start home</Button>
+                <Link
+                  to="/"
+                  data-aos="fade-left"
+                  data-aos-delay="300"
+                  data-aos-duration="800"
+                >
+                  <Button color="white" variant="outlined">
+                    Start home
+                  </Button>
                 </Link>
               </div>
             </div>
