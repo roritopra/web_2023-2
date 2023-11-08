@@ -7,6 +7,7 @@ import { LandingPage } from "./user/pages/LandingPage";
 import { PageNotFound } from "./user/pages/PageNotFound";
 import { PrivateRoute } from "./user/router/PrivateRoute";
 import { LaunchDetailPage } from "./user/pages/LaunchDetailPage";
+import { AboutPage } from "./user/pages/AboutPage";
 
 export function AppRouter() {
   return (
@@ -16,6 +17,7 @@ export function AppRouter() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/" element={<Navbar />}>
+          <Route path="/about" element={<AboutPage />} />
           <Route index element={<LandingPage />} />
           <Route
             path="/launches"
