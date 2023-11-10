@@ -3,7 +3,8 @@
   --card-color: rgb(23, 23, 23);
 }
 
-#cards:hover > .card::after {
+#cards:hover > .card::after,
+#cards:hover > .card::before {
   opacity: 1;
 }
 

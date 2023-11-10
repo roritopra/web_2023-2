@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./user/components/Navbar";
-import { LoginPage } from "./user/pages/LoginPage";
-import { RegisterPage } from "./user/pages/RegisterPage";
+import { LoginPage } from "./auth/pages/LoginPage";
+import { RegisterPage } from "./auth/pages/RegisterPage";
 import { LaunchesPage } from "./user/pages/LaunchesPage";
 import { LandingPage } from "./user/pages/LandingPage";
 import { PageNotFound } from "./user/pages/PageNotFound";

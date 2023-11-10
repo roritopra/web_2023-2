@@ -14,7 +14,14 @@ export function RegisterPage() {
 
   const onRegister = (event) => {
     event.preventDefault();
-    window.localStorage.setItem('user', JSON.stringify({ name, email, password }));
+    const usersList = JSON.parse(localStorage.getItem('userList'));
+
+    window.localStorage.setItem(
+      'userList', 
+      usersList ? 
+        JSON.stringify([...usersList, { name, email, password }]) : 
+        JSON.stringify([{ name, email, password }])
+    );
     navigate("/launches", {
       replace: true,
       state: { isLogged: true, name },

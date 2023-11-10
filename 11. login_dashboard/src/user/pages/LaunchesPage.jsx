@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import { fetchData } from "../../services/apiService";
@@ -6,17 +6,6 @@ import { Spinner } from "flowbite-react";
 import "./launches.css";
 
 export function LaunchesPage() {
-  /*document.getElementById("cards").onmousemove = (e) => {
-    for (const card of document.getElementsByClassName("card")) {
-      const rect = card.getBoundingClientRect(),
-        x = e.clientX - rect.left,
-        y = e.clientY - rect.top;
-
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-    }
-  };*/
-
   const [launches, setLaunches] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
@@ -64,6 +53,24 @@ export function LaunchesPage() {
         });
     }
   }, [searchTerm]);
+
+  const onRef = useCallback((element) => {
+    if (!element) return;
+
+    console.log('---- REF CHANGE ----');
+    console.log(element);
+
+    element.onmousemove = (e) => {
+      for (const card of element.getElementsByClassName("card")) {
+        const rect = card.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      }
+    }
+  }, []);
 
   if (loading) {
     return (
@@ -139,6 +146,7 @@ export function LaunchesPage() {
         ) : (
           <section
             id="cards"
+            ref={onRef}
             className="grid mx-2 gap-3 mt-32 sm:grid-cols-2 lg:grid-cols-3 lg:mx-14"
           >
             {currentLaunches.map((launches, index) => (

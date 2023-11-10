@@ -4,9 +4,11 @@ import { Button } from "@material-tailwind/react";
 import { useForm } from "../../hook/useForm";
 import { Toast } from "flowbite-react";
 import { HiX } from "react-icons/hi";
+import { useAuth } from "../../auth/context/AuthContext";
 
 export function LoginPage() {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const { name, password, onInputChange, onResetForm } = useForm({
     name: "",
@@ -18,15 +20,16 @@ export function LoginPage() {
   const onLogin = (event) => {
     event.preventDefault();
 
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedUsers = JSON.parse(localStorage.getItem("userList"));
+    const userToLogin = storedUsers?.find((item) => item.name === name);
 
     if (
-      storedUser &&
-      storedUser.password === password
+      userToLogin &&
+      userToLogin.password === password
     ) {
+      login(userToLogin.name);
       navigate("/launches", {
         replace: true,
-        state: { isLogged: true, name },
       });
       onResetForm();
     } else {

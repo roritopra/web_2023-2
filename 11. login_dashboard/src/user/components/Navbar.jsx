@@ -1,6 +1,6 @@
 import { Menulinks } from "../menuLinks/menuLinks";
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import {
   Menu,
   MenuHandler,
@@ -10,10 +10,11 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { useAuth } from "../../auth/context/AuthContext";
 
 export function Navbar() {
   const navigate = useNavigate();
-  const { state } = useLocation();
+  const { currentUser, logout } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,9 +39,11 @@ export function Navbar() {
   }, []);
 
   const onSignOut = () => {
+    1;
     navigate("/", {
       replace: true,
     });
+    logout();
   };
 
   return (
@@ -69,14 +72,17 @@ export function Navbar() {
         <nav className="hidden lg:block sm:hidden">
           <ul className="flex gap-5">
             {Menulinks.map((menu, index) => (
-              <li key={index} className="text-whit font-din text-base transition-colors duration-500 font-medium hover:bg-white px-4 py-2 hover:text-black hover:rounded-lg">
+              <li
+                key={index}
+                className="text-whit font-din text-base transition-colors duration-500 font-medium hover:bg-white px-4 py-2 hover:text-black hover:rounded-lg"
+              >
                 <Link to={menu.path}>{menu.text}</Link>
               </li>
             ))}
           </ul>
         </nav>
 
-        {state?.isLogged ? (
+        {currentUser ? (
           <nav className="flex flex-grow justify-end basis-0">
             <div className="hidden lg:flex">
               <Menu>
@@ -88,7 +94,7 @@ export function Navbar() {
                       className="cursor-pointer"
                       src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
                     />
-                    <Typography variant="h6">{state?.name}</Typography>
+                    <Typography variant="h6">{currentUser}</Typography>
                   </div>
                 </MenuHandler>
                 <MenuList>
@@ -160,7 +166,7 @@ export function Navbar() {
                           className="cursor-pointer"
                           src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
                         />
-                        <Typography variant="h6">{state?.name}</Typography>
+                        <Typography variant="h6">{currentUser}</Typography>
                       </div>
                     </MenuHandler>
                     <MenuList>
