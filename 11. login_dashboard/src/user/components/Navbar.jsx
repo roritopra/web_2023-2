@@ -234,7 +234,7 @@ export function Navbar() {
                 className="absolute top-4 right-4 text-white text-3xl"
                 onClick={toggleNavbar}
               >
-                &#9776;
+                &#x2716;
               </button>
               <div className="flex flex-col items-center justify-center h-full">
                 <ul className="flex flex-col items-center gap-16">
