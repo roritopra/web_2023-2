@@ -72,12 +72,11 @@ export function Navbar() {
         <nav className="hidden lg:block sm:hidden">
           <ul className="flex gap-5">
             {Menulinks.map((menu, index) => (
-              <li
-                key={index}
-                className="text-whit font-din text-base transition-colors duration-500 font-medium hover:bg-white px-4 py-2 hover:text-black hover:rounded-lg"
-              >
-                <Link to={menu.path}>{menu.text}</Link>
-              </li>
+              <Link key={index} to={menu.path}>
+                <li className="text-whit font-din text-base transition-colors duration-500 font-medium hover:bg-white px-4 py-2 hover:text-black hover:rounded-lg">
+                  {menu.text}
+                </li>
+              </Link>
             ))}
           </ul>
         </nav>
