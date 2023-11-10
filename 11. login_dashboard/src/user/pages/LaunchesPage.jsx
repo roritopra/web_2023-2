@@ -57,7 +57,7 @@ export function LaunchesPage() {
   const onRef = useCallback((element) => {
     if (!element) return;
 
-    console.log('---- REF CHANGE ----');
+    console.log("---- REF CHANGE ----");
     console.log(element);
 
     element.onmousemove = (e) => {
@@ -69,7 +69,7 @@ export function LaunchesPage() {
         card.style.setProperty("--mouse-x", `${x}px`);
         card.style.setProperty("--mouse-y", `${y}px`);
       }
-    }
+    };
   }, []);
 
   if (loading) {
@@ -153,39 +153,37 @@ export function LaunchesPage() {
               <Link
                 to={`/launch/${launches.flight_number}`}
                 key={index}
-                className="card relative flex flex-col w-full cursor-pointer rounded-lg py-4 hover:bg-[#707070b7] transition-colors duration-200"
+                className="card relative flex flex-col w-full cursor-pointer rounded-lg py-4 transition-colors duration-200"
               >
-                <article className="card rounded-lg">
-                  <div className="card-content"></div>
-                  <div className="relative z-30 flex justify-center items-center">
-                    <img
-                      className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
-                      src={launches.links.mission_patch}
-                      alt="Launch patch image"
-                    />
-                  </div>
-                  <div className="relative z-30 flex px-4">
-                    <span
-                      className={`${
-                        launches.launch_success
-                          ? "font-roobertSemiBold text-green-900 text-xs px-3 py-[1px] mb-3 bg-green-400 rounded-md lg:text-sm"
-                          : "font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm"
-                      }`}
-                    >
-                      {launches.launch_success ? "Success" : "Failure"}
-                    </span>
-                  </div>
-                  <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">
-                    Flight #{launches.flight_number}
-                  </h6>
-                  <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight text-sm">
-                    {launches.details === null
-                      ? "No data results for this launch"
-                      : launches.details.length > 100
-                      ? launches.details.slice(0, 100) + "..."
-                      : launches.details}
-                  </p>
-                </article>
+                <div className="card-content"></div>
+                <div className="relative z-30 flex justify-center items-center">
+                  <img
+                    className="overflow-hidden w-full lg:w-[80%] mb-11 px-14"
+                    src={launches.links.mission_patch}
+                    alt="Launch patch image"
+                  />
+                </div>
+                <div className="relative z-30 flex px-4">
+                  <span
+                    className={`${
+                      launches.launch_success
+                        ? "font-roobertSemiBold text-green-900 text-xs px-3 py-[1px] mb-3 bg-green-400 rounded-md lg:text-sm"
+                        : "font-roobertSemiBold text-red-900 text-xs px-3 py-[1px] mb-3 bg-red-400 rounded-md lg:text-sm"
+                    }`}
+                  >
+                    {launches.launch_success ? "Success" : "Failure"}
+                  </span>
+                </div>
+                <h6 className="relative z-30 font-roobert text-white px-4 text-xl mb-4">
+                  Flight #{launches.flight_number}
+                </h6>
+                <p className="relative z-30 px-4 text-[#A8A8A8] font-roobertLight text-sm">
+                  {launches.details === null
+                    ? "No data results for this launch"
+                    : launches.details.length > 100
+                    ? launches.details.slice(0, 100) + "..."
+                    : launches.details}
+                </p>
               </Link>
             ))}
           </section>
