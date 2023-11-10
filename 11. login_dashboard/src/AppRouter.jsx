@@ -27,7 +27,9 @@ export function AppRouter() {
               </PrivateRoute>
             }
           />
-          <Route path="/launch/:flight_number" element={<LaunchDetailPage />} />
+          <Route path="/launch/:flight_number" element={<PrivateRoute>
+            <LaunchDetailPage />
+          </PrivateRoute>} />
         </Route>
       </Routes>
     </main>
