@@ -73,7 +73,7 @@ export function Navbar() {
           <ul className="flex gap-5">
             {Menulinks.map((menu, index) => (
               <Link key={index} to={menu.path}>
-                <li className="text-whit font-din text-base transition-colors duration-500 font-medium hover:bg-white px-4 py-2 hover:text-black hover:rounded-lg">
+                <li className="text-whit font-din text-base transition-colors duration-500 font-medium rounded-lg hover:bg-white px-4 py-2 hover:text-black">
                   {menu.text}
                 </li>
               </Link>
