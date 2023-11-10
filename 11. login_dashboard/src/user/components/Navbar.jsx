@@ -64,7 +64,7 @@ export function Navbar() {
             <img
               src="/logo-mobile.png"
               alt="Logo"
-              className="w-[100px] lg:hidden"
+              className="w-[60px] lg:hidden"
             />
           </NavLink>
         </div>
@@ -145,7 +145,7 @@ export function Navbar() {
               }`}
             >
               <button
-                className="absolute top-4 right-4 text-white text-5xl"
+                className="absolute top-4 right-4 text-white text-3xl"
                 onClick={toggleNavbar}
               >
                 &#9776;
@@ -157,7 +157,11 @@ export function Navbar() {
                       to={menu.path}
                       key={index}
                       onClick={closeNavbar}
-                      className="font-roobertLight text-3xl text-center cursor-pointer transition-all"
+                      className={({isActive}) => {
+                        return `font-roobertLight text-3xl text-center cursor-pointer transition-all ${
+                          isActive ? "bg-white py-3 px-6 text-black" : ""
+                        }`;
+                      }}
                     >
                       {menu.text}
                     </NavLink>
@@ -214,7 +218,7 @@ export function Navbar() {
             <div className="flex justify-end lg:hidden">
               <button onClick={toggleNavbar}>
                 <img
-                  className="w-[30px] h-[50px]"
+                  className="w-[25px] h-[45px]"
                   src="/menu_mobile.svg"
                   alt=""
                 />
@@ -227,7 +231,7 @@ export function Navbar() {
               }`}
             >
               <button
-                className="absolute top-4 right-4 text-white text-5xl"
+                className="absolute top-4 right-4 text-white text-3xl"
                 onClick={toggleNavbar}
               >
                 &#9776;
@@ -239,7 +243,11 @@ export function Navbar() {
                       to={menu.path}
                       key={index}
                       onClick={closeNavbar}
-                      className="font-roobertLight text-3xl text-center cursor-pointer transition-all"
+                      className={({isActive}) => {
+                        return `font-roobertLight text-3xl text-center cursor-pointer transition-all ${
+                          isActive ? "bg-white py-3 px-6 text-black" : ""
+                        }`;
+                      }}
                     >
                       {menu.text}
                     </NavLink>

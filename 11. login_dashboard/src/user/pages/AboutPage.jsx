@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export function AboutPage() {
   return (
     <>
-      <main className="bg-black pt-20">
+      <main className="bg-black pt-40">
         <div className="flex justify-center mb-16">
           <div className="main-container">
             <div className="sun"></div>
