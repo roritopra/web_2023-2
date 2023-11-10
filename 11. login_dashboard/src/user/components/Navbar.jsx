@@ -1,6 +1,6 @@
 import { Menulinks } from "../menuLinks/menuLinks";
 import { useEffect, useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import {
   Menu,
   MenuHandler,
@@ -55,7 +55,7 @@ export function Navbar() {
         }`}
       >
         <div className="flex flex-grow basis-0">
-          <Link to="/" className="w-25px h-46px">
+          <NavLink to="/" className="w-25px h-46px">
             <img
               src="/logo-light.png"
               alt="Logo"
@@ -66,17 +66,23 @@ export function Navbar() {
               alt="Logo"
               className="w-[100px] lg:hidden"
             />
-          </Link>
+          </NavLink>
         </div>
 
         <nav className="hidden lg:block sm:hidden">
           <ul className="flex gap-5">
             {Menulinks.map((menu, index) => (
-              <Link key={index} to={menu.path}>
-                <li className="text-whit font-din text-base transition-colors duration-500 font-medium rounded-lg hover:bg-white px-4 py-2 hover:text-black">
-                  {menu.text}
-                </li>
-              </Link>
+              <NavLink
+                key={index}
+                to={menu.path}
+                className={({ isActive }) => {
+                  return `text-whit font-din text-base transition-colors duration-500 font-medium rounded-lg hover:bg-white px-4 py-2 hover:text-black ${
+                    isActive ? "bg-white text-black" : ""
+                  }`;
+                }}
+              >
+                {menu.text}
+              </NavLink>
             ))}
           </ul>
         </nav>
@@ -147,14 +153,14 @@ export function Navbar() {
               <div className="flex flex-col items-center justify-center h-full">
                 <ul className="flex flex-col items-center gap-16">
                   {Menulinks.map((menu, index) => (
-                    <Link
+                    <NavLink
                       to={menu.path}
                       key={index}
                       onClick={closeNavbar}
                       className="font-roobertLight text-3xl text-center cursor-pointer transition-all"
                     >
                       {menu.text}
-                    </Link>
+                    </NavLink>
                   ))}
                   <Menu>
                     <MenuHandler>
@@ -200,9 +206,9 @@ export function Navbar() {
         ) : (
           <div className="flex-grow justify-end basis-0">
             <nav className="hidden lg:flex justify-end">
-              <Link to="/login">
+              <NavLink to="/login">
                 <Button color="white">Log in</Button>
-              </Link>
+              </NavLink>
             </nav>
 
             <div className="flex justify-end lg:hidden">
@@ -229,20 +235,20 @@ export function Navbar() {
               <div className="flex flex-col items-center justify-center h-full">
                 <ul className="flex flex-col items-center gap-16">
                   {Menulinks.map((menu, index) => (
-                    <Link
+                    <NavLink
                       to={menu.path}
                       key={index}
                       onClick={closeNavbar}
                       className="font-roobertLight text-3xl text-center cursor-pointer transition-all"
                     >
                       {menu.text}
-                    </Link>
+                    </NavLink>
                   ))}
-                  <Link to="/login">
+                  <NavLink to="/login">
                     <p className="bg-white text-black px-10 py-4 text-3xl font-roobertLight rounded-lg">
                       Log in
                     </p>
-                  </Link>
+                  </NavLink>
                 </ul>
               </div>
             </div>
